@@ -55,10 +55,18 @@ Delimitar es la mitad del trabajo. Cada exclusión lleva su motivo:
 | Localización e internacionalización completa                   | Solo se prueba el idioma por defecto (inglés). Las incidencias de traducción se anotan como observación, no como defecto. |
 
 > **Nota ética y legal.** Todas las pruebas se ejecutan contra la instancia pública que OrangeHRM
-> publica expresamente para demostración y aprendizaje, exclusivamente de forma manual y a través de
-> la interfaz de usuario, a un ritmo equivalente al de un usuario real. No se ejecutan scripts
-> automatizados, escáneres ni pruebas de carga contra ella. Los datos que se crean se eliminan al
-> terminar cuando el caso lo permite.
+> publica expresamente para demostración y aprendizaje, a un ritmo equivalente al de un usuario real
+> y con el mínimo de registros necesario, que se eliminan al terminar.
+>
+> Los casos de la matriz se ejecutan **de forma manual a través de la interfaz**. La confirmación del
+> contrato de la API en los defectos detectados se realiza mediante peticiones puntuales dirigidas a
+> los endpoints implicados, reutilizando la sesión del navegador: es lo que permite distinguir un
+> fallo de la interfaz de una carencia del servidor, y es la diferencia entre reportar un síntoma y
+> reportar una causa. Cada una de esas comprobaciones consiste en un puñado de peticiones, y queda
+> recogida en la sección *Verificación* del reporte correspondiente.
+>
+> **No se ejecutan pruebas de carga, escáneres de vulnerabilidades ni pruebas de seguridad ofensiva
+> de ningún tipo.**
 
 ---
 

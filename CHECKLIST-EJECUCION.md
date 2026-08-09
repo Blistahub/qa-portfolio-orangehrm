@@ -40,7 +40,7 @@ reutiliza el empleado creado en el anterior.
 | Orden | Bloque | Casos | Notas |
 | :---: | --- | --- | --- |
 | 1 | Alta de empleado | CP-001 … CP-012 | Crear aquí los empleados que usarán los bloques siguientes. |
-| 2 | Listado y búsqueda | CP-013 … CP-021 | CP-019 necesita provocar que la última página tenga un solo registro. |
+| 2 | Listado y búsqueda | CP-013 … CP-021 | **CP-019 y CP-020 requieren más de 50 empleados en la instancia.** Si no los hay, se registran como bloqueados: no se crean 50 registros en una demo compartida. |
 | 3 | Datos personales | CP-022 … CP-028 | Sobre el empleado creado en CP-001. |
 | 4 | Contacto y dependientes | CP-029 … CP-032 | Misma ficha. |
 | 5 | Job, Salary, Report-to | CP-033 … CP-036 | CP-033 requiere fecha de nacimiento ya informada (bloque 3). |

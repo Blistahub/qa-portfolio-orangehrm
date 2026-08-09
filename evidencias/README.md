@@ -14,7 +14,7 @@ BUG-00X-NN-descripcion-corta.png
 | `NN` | Orden dentro de la secuencia del defecto (`01`, `02`, `03`…) |
 | `descripcion-corta` | Qué muestra, en minúsculas y separado por guiones |
 
-Ejemplo: `BUG-002-03-sin-usuario.png`
+Ejemplo: `BUG-009-02-joined-date.png`
 
 El prefijo numérico ordena las capturas por sí solo en cualquier explorador de archivos, y el
 nombre indica qué contiene sin necesidad de abrirla.
