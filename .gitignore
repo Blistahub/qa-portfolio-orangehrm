@@ -1,0 +1,21 @@
+# Sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Ofimática — archivos temporales de Excel/LibreOffice
+~$*.xlsx
+~$*.docx
+.~lock.*#
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Python (generación de la matriz .xlsx)
+__pycache__/
+*.pyc
+.venv/
+venv/
