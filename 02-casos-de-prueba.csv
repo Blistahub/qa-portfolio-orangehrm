@@ -125,7 +125,7 @@
 2. Ir a la pestaña Job.
 3. Introducir una Joined Date anterior a esa fecha de nacimiento.
 4. Pulsar Save.";"Date of Birth: 1995-15-06 · Joined Date: 1980-01-10";"El sistema rechaza la combinación con un mensaje de coherencia entre fechas: nadie se incorpora antes de nacer.";"Media";"Funcional negativo";"Tabla de decisión";"Falla";"BUG-009"
-"CP-034";"RN-03";"El importe salarial no admite valores negativos";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Salary y pulsar Add.
+"CP-034";"RF-28, RN-03";"El importe salarial no admite valores negativos";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Salary y pulsar Add.
 2. Seleccionar componente salarial, divisa y periodicidad.
 3. Introducir un importe negativo.
 4. Pulsar Save.";"Amount: -1500 · Currency: Euro · Pay Frequency: Monthly";"El sistema rechaza el importe con un mensaje de validación. Un salario negativo no es un dato posible.";"Alta";"Funcional negativo";"Valores límite";"Falla";"BUG-010"

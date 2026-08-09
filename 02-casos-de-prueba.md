@@ -57,7 +57,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 | `CP-031` | RF-25 | [Alta, edición y borrado de un contacto de emergencia](#cp-031) | Alta | Funcional / Smoke | Transición de estados | 🟢 Pasa | — |
 | `CP-032` | RF-26, RN-01 | [Una persona a cargo no admite fecha de nacimiento futura](#cp-032) | Media | Funcional negativo | Conjetura de errores | 🔴 Falla | [BUG-008](03-bug-reports/BUG-008.md) |
 | `CP-033` | RN-02 | [La fecha de incorporación no puede ser anterior a la de nacimiento](#cp-033) | Media | Funcional negativo | Tabla de decisión | 🔴 Falla | [BUG-009](03-bug-reports/BUG-009.md) |
-| `CP-034` | RN-03 | [El importe salarial no admite valores negativos](#cp-034) | Alta | Funcional negativo | Valores límite | 🔴 Falla | [BUG-010](03-bug-reports/BUG-010.md) |
+| `CP-034` | RF-28, RN-03 | [El importe salarial no admite valores negativos](#cp-034) | Alta | Funcional negativo | Valores límite | 🔴 Falla | [BUG-010](03-bug-reports/BUG-010.md) |
 | `CP-035` | RF-29 | [Un empleado no puede asignarse a sí mismo como supervisor](#cp-035) | Media | Funcional negativo | Conjetura de errores | 🔴 Falla | [BUG-011](03-bug-reports/BUG-011.md) |
 | `CP-036` | RF-30 | [El adjunto que supera el tamaño máximo configurado se rechaza](#cp-036) | Media | Funcional negativo | Valores límite | 🟡 Bloqueado | — |
 | `CP-037` | RNF-01 | [El listado de empleados es operativo en viewport móvil](#cp-037) | Media | Responsive | Particiones de equivalencia | 🟢 Pasa | — |
@@ -827,7 +827,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RN-03 | Alta | Funcional negativo | Valores límite | 🔴 Falla | [BUG-010](03-bug-reports/BUG-010.md) |
+| RF-28, RN-03 | Alta | Funcional negativo | Valores límite | 🔴 Falla | [BUG-010](03-bug-reports/BUG-010.md) |
 
 **Precondiciones:** Sesión iniciada como Admin. Ficha de empleado abierta.
 

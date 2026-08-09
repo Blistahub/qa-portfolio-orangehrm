@@ -436,7 +436,7 @@ CASOS = [
         "Media", "Funcional negativo", "Tabla de decisión", "Falla", "BUG-009",
     ),
     (
-        "CP-034", "RN-03",
+        "CP-034", "RF-28, RN-03",
         "El importe salarial no admite valores negativos",
         "Sesión iniciada como Admin. Ficha de empleado abierta.",
         ["Ir a la pestaña Salary y pulsar Add.",
