@@ -85,7 +85,7 @@ cliente no cierra ninguno de ellos, y eso cambia tanto la estimación como el di
   cada exclusión lleva su motivo. Nada de pruebas de carga ni de seguridad ofensiva contra un
   servicio ajeno sin autorización — y dicho en el documento, no omitido.
 - **Severidad y prioridad se clasifican por separado**, y en
-  [4 de los 12 defectos divergen](03-bug-reports/#criterios-de-clasificación-aplicados). Severidad es
+  [4 de los 12 defectos divergen](03-bug-reports/README.md#criterios-de-clasificación-aplicados). Severidad es
   cuánto daño hace; prioridad es con qué urgencia conviene corregirlo.
 - **Cuatro defectos se marcan «requiere confirmación de negocio»** porque dependen de reglas que el
   fabricante no documenta. Se reportan igual, pero marcados: un tester señala el riesgo, no decide
