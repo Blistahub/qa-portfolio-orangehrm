@@ -1,0 +1,145 @@
+﻿"ID";"Requisito asociado";"Título";"Precondiciones";"Pasos";"Datos de prueba";"Resultado esperado";"Prioridad";"Tipo";"Técnica de diseño";"Estado";"Defecto"
+"CP-001";"RF-01, RF-09";"Alta de empleado con los datos mínimos obligatorios";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir First Name y Last Name.
+3. Dejar «Create Login Details» desactivado.
+4. Pulsar Save.";"First Name: Lucía · Last Name: Herrera";"El empleado se crea, aparece el aviso «Successfully Saved» y la aplicación redirige a la ficha del empleado con el Employee Id asignado.";"Alta";"Funcional / Smoke";"Tabla de decisión (R1)";"Pasa";"—"
+"CP-002";"RF-01";"El alta sin First Name se rechaza";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Dejar First Name vacío e introducir solo Last Name.
+3. Pulsar Save.";"First Name: (vacío) · Last Name: Herrera";"El empleado no se crea y aparece el mensaje «Required» bajo el campo First Name.";"Alta";"Funcional negativo";"Tabla de decisión (R2)";"Pasa";"—"
+"CP-003";"RF-01";"El alta sin Last Name se rechaza";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir solo First Name.
+3. Pulsar Save.";"First Name: Lucía · Last Name: (vacío)";"El empleado no se crea y aparece el mensaje «Required» bajo el campo Last Name.";"Media";"Funcional negativo";"Particiones de equivalencia";"Pasa";"—"
+"CP-004";"RF-02";"First Name admite exactamente 30 caracteres (límite superior)";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Pegar en First Name una cadena de 30 caracteres.
+3. Introducir un Last Name válido.
+4. Pulsar Save y abrir la ficha creada.";"First Name: Abcdefghijklmnopqrstuvwxyzabcd (30) · Last Name: Herrera";"El empleado se crea y el nombre se almacena y se muestra completo, sin truncar.";"Media";"Funcional positivo";"Valores límite";"Pasa";"—"
+"CP-005";"RF-02";"First Name no admite 31 caracteres (límite superior + 1)";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Pegar en First Name una cadena de 31 caracteres.
+3. Observar el contenido del campo.
+4. Pulsar Save.";"First Name: Abcdefghijklmnopqrstuvwxyzabcde (31)";"El campo impide superar los 30 caracteres o el sistema muestra un error de longitud. En ningún caso se guarda un valor truncado en silencio.";"Media";"Funcional negativo";"Valores límite";"Pasa";"—"
+"CP-006";"RF-04";"El alta con un Employee Id ya existente se rechaza";"Sesión iniciada como Admin. Existe un empleado con Employee Id conocido.";"1. Anotar el Employee Id de un empleado existente desde PIM > Employee List.
+2. Ir a PIM > Add Employee.
+3. Introducir nombre y apellido válidos.
+4. Sustituir el Employee Id autogenerado por el anotado en el paso 1.
+5. Pulsar Save.";"Employee Id: (uno ya existente en el listado)";"El empleado no se crea y se muestra un mensaje indicando que el Employee Id ya está en uso.";"Alta";"Funcional negativo";"Tabla de decisión (R3)";"Pasa";"—"
+"CP-007";"RF-01";"El alta con nombres compuestos solo por espacios en blanco se rechaza";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir tres espacios en First Name y tres en Last Name.
+3. Pulsar Save.";"First Name: «   » · Last Name: «   »";"El sistema trata los campos como vacíos y muestra «Required». No se crea un empleado sin nombre visible en el listado.";"Media";"Funcional negativo";"Conjetura de errores";"Pasa";"—"
+"CP-008";"RF-01";"Los campos de nombre no admiten dígitos ni caracteres especiales";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir en First Name una cadena numérica y en Last Name símbolos.
+3. Pulsar Save.
+4. Volver a PIM > Employee List y localizar el registro.";"First Name: 12345 · Last Name: !@#$%^&*()";"El sistema rechaza la entrada con un mensaje de validación de formato: un nombre de persona no admite dígitos ni símbolos.";"Media";"Funcional negativo";"Particiones de equivalencia";"Falla";"BUG-001"
+"CP-009";"RF-05";"La foto de perfil por encima de 1 MB se rechaza";"Sesión iniciada como Admin. Fichero de imagen de ~1,2 MB disponible.";"1. Ir a PIM > Add Employee.
+2. Pulsar sobre el área de la foto y seleccionar el fichero de 1,2 MB.
+3. Introducir nombre y apellido válidos.
+4. Pulsar Save.";"Fichero: foto-1200kb.jpg (1,2 MB)";"El sistema rechaza el fichero indicando que se supera el tamaño máximo permitido, y no crea el empleado con una foto inválida.";"Media";"Funcional negativo";"Valores límite";"Pasa";"—"
+"CP-010";"RF-06, RF-07, RF-08";"Alta de empleado con credenciales de acceso válidas";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir nombre y apellido válidos.
+3. Activar «Create Login Details».
+4. Introducir usuario y contraseña que cumplen la política, estado Enabled.
+5. Pulsar Save.
+6. Comprobar en Admin > User Management que el usuario aparece.";"Usuario: dcoya.test01 · Contraseña: Test1234";"El empleado se crea con su usuario asociado y este figura en la lista de usuarios del sistema con estado Enabled.";"Alta";"Funcional positivo";"Tabla de decisión (R4)";"Pasa";"—"
+"CP-011";"RF-08, RF-09";"Una contraseña que incumple la política no debe dejar el empleado creado";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir nombre y apellido válidos.
+3. Activar «Create Login Details».
+4. Introducir un usuario válido y la contraseña «test» (incumple la política).
+5. Pulsar Save.
+6. Ir a PIM > Employee List y buscar el nombre introducido.";"Usuario: dcoya.test02 · Contraseña: test";"El formulario muestra el error de política de contraseña y NO se crea el empleado: la operación es atómica.";"Alta";"Funcional negativo";"Tabla de decisión (R5)";"Falla";"BUG-002"
+"CP-012";"RF-07";"El nombre de usuario por debajo de 5 caracteres se rechaza";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Introducir nombre y apellido válidos.
+3. Activar «Create Login Details».
+4. Introducir un usuario de 4 caracteres y una contraseña válida.
+5. Pulsar Save.";"Usuario: dcoy (4 caracteres) · Contraseña: Test1234";"El sistema muestra el mensaje de longitud mínima del nombre de usuario y no crea el registro.";"Media";"Funcional negativo";"Valores límite";"Pasa";"—"
+"CP-013";"RF-10";"Búsqueda de empleado por Employee Id exacto";"Sesión iniciada como Admin. Existe un empleado con Employee Id conocido.";"1. Ir a PIM > Employee List.
+2. Introducir el Employee Id en el campo correspondiente.
+3. Pulsar Search.";"Employee Id: (el del empleado creado en CP-001)";"El listado devuelve únicamente el empleado con ese identificador y el contador indica «(1) Record Found».";"Alta";"Funcional / Smoke";"Particiones de equivalencia";"Pasa";"—"
+"CP-014";"RF-11";"El autocompletado de Employee Name sugiere a partir del tercer carácter";"Sesión iniciada como Admin.";"1. Ir a PIM > Employee List.
+2. Escribir dos caracteres en Employee Name y esperar.
+3. Escribir un tercer carácter y esperar.";"Texto: «Lu» y después «Luc»";"Con dos caracteres no se despliegan sugerencias; con tres aparece la lista de coincidencias.";"Media";"Funcional positivo";"Valores límite";"Pasa";"—"
+"CP-015";"RF-11";"Búsqueda con texto parcial válido sin seleccionar sugerencia";"Sesión iniciada como Admin. Existe al menos un empleado cuyo nombre empieza por «Luc».";"1. Ir a PIM > Employee List.
+2. Escribir «Luc» en Employee Name sin pulsar ninguna sugerencia.
+3. Pulsar Search.";"Texto: Luc";"El sistema busca por coincidencia parcial y devuelve los empleados cuyo nombre contiene el texto, o bien indica con claridad que debe elegirse una sugerencia. No debe etiquetarse como «Invalid» un dato correcto.";"Media";"Usabilidad";"Conjetura de errores";"Falla";"BUG-003"
+"CP-016";"RF-12";"El filtro combinado aplica conjunción lógica entre criterios";"Sesión iniciada como Admin.";"1. Ir a PIM > Employee List.
+2. Seleccionar una Sub Unit con varios empleados.
+3. Seleccionar además un Employment Status.
+4. Pulsar Search.
+5. Revisar las columnas del resultado.";"Sub Unit: Engineering · Employment Status: Full-Time Permanent";"Todos los registros devueltos cumplen simultáneamente los dos criterios; ninguno cumple solo uno.";"Alta";"Funcional positivo";"Tabla de decisión";"Pasa";"—"
+"CP-017";"RF-16";"Búsqueda sin coincidencias muestra «No Records Found»";"Sesión iniciada como Admin.";"1. Ir a PIM > Employee List.
+2. Introducir un Employee Id inexistente.
+3. Pulsar Search.";"Employee Id: ZZ999999";"Se muestra el aviso «No Records Found», la tabla queda vacía y la cabecera y los filtros siguen operativos.";"Media";"Funcional negativo";"Particiones de equivalencia";"Pasa";"—"
+"CP-018";"RF-13";"El botón Reset limpia todos los filtros y restaura el listado";"Sesión iniciada como Admin. Hay una búsqueda filtrada aplicada.";"1. Aplicar un filtro por Sub Unit y otro por Employment Status.
+2. Pulsar Search y comprobar que el listado se reduce.
+3. Pulsar Reset.";"—";"Todos los campos de filtro vuelven a su valor por defecto y el listado muestra de nuevo el total de empleados.";"Alta";"Funcional / Smoke";"Transición de estados";"Pasa";"—"
+"CP-019";"RF-14, RF-17";"Al eliminar el último registro de la última página el listado se reubica";"Sesión iniciada como Admin. El listado tiene más de una página y la última contiene un único registro eliminable creado para la prueba.";"1. Ir a PIM > Employee List.
+2. Navegar hasta la última página de la paginación.
+3. Eliminar el único registro que contiene y confirmar.
+4. Observar el listado resultante.";"—";"Tras el borrado la aplicación retrocede a la página anterior y muestra registros. No debe quedar una tabla vacía con un total mayor que cero.";"Media";"Funcional negativo";"Valores límite";"Falla";"BUG-004"
+"CP-020";"RF-15";"La ordenación por columna se mantiene al cambiar de página";"Sesión iniciada como Admin. El listado tiene más de una página.";"1. Ir a PIM > Employee List.
+2. Ordenar por Last Name en orden ascendente.
+3. Comprobar el orden de la primera página.
+4. Avanzar a la página siguiente y comprobar el orden.";"Columna: Last Name (A-Z)";"El criterio de ordenación persiste entre páginas y la secuencia alfabética continúa de forma coherente de una página a la siguiente.";"Baja";"Funcional";"Transición de estados";"Falla";"BUG-005"
+"CP-021";"RF-17";"Borrado múltiple de empleados con confirmación previa";"Sesión iniciada como Admin. Existen al menos dos empleados de prueba.";"1. Ir a PIM > Employee List.
+2. Marcar la casilla de dos empleados de prueba.
+3. Pulsar «Delete Selected».
+4. Confirmar en el diálogo.
+5. Buscar de nuevo ambos empleados.";"Empleados creados en CP-001 y CP-004";"Se solicita confirmación antes de borrar, ambos registros desaparecen del listado y una búsqueda posterior no los devuelve.";"Alta";"Funcional positivo";"Transición de estados";"Pasa";"—"
+"CP-022";"RF-18, RF-22";"Edición y guardado de los datos personales de un empleado";"Sesión iniciada como Admin. Existe el empleado de prueba.";"1. Abrir la ficha del empleado desde PIM > Employee List.
+2. En Personal Details modificar Other Id, Nationality y Marital Status.
+3. Pulsar Save.
+4. Recargar la página.";"Other Id: OT-0091 · Nationality: Spanish · Marital Status: Single";"Aparece «Successfully Updated» y los tres valores se conservan tras recargar la página.";"Alta";"Funcional positivo";"Particiones de equivalencia";"Pasa";"—"
+"CP-023";"RF-19, RF-20";"La fecha de nacimiento con formato inválido se rechaza";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Situarse en Personal Details.
+2. Escribir manualmente una fecha con formato incorrecto en Date of Birth.
+3. Pulsar Save.";"Date of Birth: 31/02/2020";"Se muestra el mensaje «Should be a valid date in yyyy-dd-mm format» y el valor no se guarda.";"Media";"Funcional negativo";"Particiones de equivalencia";"Pasa";"—"
+"CP-024";"RN-01";"La fecha de nacimiento no admite fechas futuras";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Situarse en Personal Details.
+2. Abrir el selector de Date of Birth y navegar hasta un año futuro.
+3. Seleccionar una fecha posterior a hoy.
+4. Pulsar Save.";"Date of Birth: 2035-01-01";"El sistema rechaza la fecha con un mensaje de validación: una fecha de nacimiento posterior a hoy no es un dato posible.";"Alta";"Funcional negativo";"Conjetura de errores";"Falla";"BUG-006"
+"CP-025";"RF-18, RN-04";"Permiso de conducir con fecha de caducidad pasada";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Situarse en Personal Details.
+2. Introducir número de licencia y una fecha de caducidad anterior a hoy.
+3. Pulsar Save y recargar.";"License Number: B-4457821 · Expiry Date: 2019-01-15";"El dato se guarda —es un valor histórico legítimo— y el sistema no lo trata como error de validación.";"Baja";"Funcional positivo";"Particiones de equivalencia";"Pasa";"—"
+"CP-026";"RF-22";"Los cambios en la ficha se reflejan en el listado de empleados";"Sesión iniciada como Admin. Existe el empleado de prueba.";"1. Modificar el Last Name del empleado desde su ficha y guardar.
+2. Ir a PIM > Employee List.
+3. Buscar el empleado por su Employee Id.";"Last Name: Herrera → Herrera-Ruiz";"El listado muestra el apellido actualizado sin necesidad de vaciar la caché ni volver a iniciar sesión.";"Alta";"Funcional / Smoke";"Transición de estados";"Pasa";"—"
+"CP-027";"RF-10, RF-18";"Nombres con tildes y caracteres no ASCII: guardado y búsqueda";"Sesión iniciada como Admin.";"1. Crear un empleado con acentos en el nombre.
+2. Comprobar que la ficha y el listado los muestran correctamente.
+3. Buscar el empleado escribiendo el nombre SIN tildes.
+4. Buscar el empleado escribiendo el nombre CON tildes.";"First Name: Mónica · Last Name: Núñez";"El nombre se almacena y se muestra sin corrupción de caracteres, y la búsqueda lo encuentra tanto con tildes como sin ellas.";"Media";"Funcional";"Particiones de equivalencia";"Falla";"BUG-007"
+"CP-028";"RF-18, RNF-02";"El contenido con etiquetas HTML se escapa al mostrarse";"Sesión iniciada como Admin.";"1. Crear un empleado cuyo First Name contenga una etiqueta HTML.
+2. Guardar y abrir la ficha.
+3. Consultar el registro en PIM > Employee List.";"First Name: <b>Lucia</b>";"El texto se muestra literalmente, tal y como se introdujo, sin interpretarse como marcado. Comprobación del escapado de salida.";"Alta";"Funcional negativo";"Conjetura de errores";"Pasa";"—"
+"CP-029";"RF-23";"Los campos de teléfono no admiten letras";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Contact Details.
+2. Introducir letras en el campo Mobile.
+3. Pulsar Save.";"Mobile: SEIS CINCO DOS";"Se muestra el mensaje «Allows numbers and only + - / ( )» y el valor no se guarda.";"Media";"Funcional negativo";"Particiones de equivalencia";"Pasa";"—"
+"CP-030";"RF-24";"El correo electrónico con formato inválido se rechaza";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Contact Details.
+2. Introducir una dirección sin arroba en Work Email.
+3. Pulsar Save.";"Work Email: lucia.herrera.empresa.com";"Se muestra el mensaje «Expected format: admin@example.com» y el valor no se guarda.";"Media";"Funcional negativo";"Particiones de equivalencia";"Pasa";"—"
+"CP-031";"RF-25";"Alta, edición y borrado de un contacto de emergencia";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a Emergency Contacts y pulsar Add.
+2. Rellenar nombre, relación y teléfono, y guardar.
+3. Editar el teléfono del contacto creado y guardar.
+4. Eliminar el contacto y confirmar.";"Nombre: Marta Herrera · Relación: Sister · Teléfono: 652489174";"El contacto se crea, la edición persiste tras recargar y el borrado lo elimina de la tabla previa confirmación.";"Alta";"Funcional / Smoke";"Transición de estados";"Pasa";"—"
+"CP-032";"RF-26, RN-01";"Una persona a cargo no admite fecha de nacimiento futura";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Dependents y pulsar Add.
+2. Introducir nombre y relación Child.
+3. Introducir una fecha de nacimiento posterior a hoy.
+4. Pulsar Save.";"Nombre: Pablo Herrera · Date of Birth: 2035-06-01";"El sistema rechaza la fecha con un mensaje de validación, igual que en la ficha del empleado.";"Media";"Funcional negativo";"Conjetura de errores";"Falla";"BUG-008"
+"CP-033";"RN-02";"La fecha de incorporación no puede ser anterior a la de nacimiento";"Sesión iniciada como Admin. El empleado tiene fecha de nacimiento informada.";"1. Comprobar en Personal Details la fecha de nacimiento del empleado.
+2. Ir a la pestaña Job.
+3. Introducir una Joined Date anterior a esa fecha de nacimiento.
+4. Pulsar Save.";"Date of Birth: 1995-15-06 · Joined Date: 1980-01-10";"El sistema rechaza la combinación con un mensaje de coherencia entre fechas: nadie se incorpora antes de nacer.";"Media";"Funcional negativo";"Tabla de decisión";"Falla";"BUG-009"
+"CP-034";"RN-03";"El importe salarial no admite valores negativos";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Salary y pulsar Add.
+2. Seleccionar componente salarial, divisa y periodicidad.
+3. Introducir un importe negativo.
+4. Pulsar Save.";"Amount: -1500 · Currency: Euro · Pay Frequency: Monthly";"El sistema rechaza el importe con un mensaje de validación. Un salario negativo no es un dato posible.";"Alta";"Funcional negativo";"Valores límite";"Falla";"BUG-010"
+"CP-035";"RF-29";"Un empleado no puede asignarse a sí mismo como supervisor";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Report-to.
+2. En «Assigned Supervisors» pulsar Add.
+3. Introducir el nombre del propio empleado y seleccionarlo.
+4. Elegir el método de reporte y pulsar Save.";"Supervisor: el mismo empleado de la ficha";"El sistema impide la asignación: crea un ciclo en la jerarquía de supervisión.";"Media";"Funcional negativo";"Conjetura de errores";"Falla";"BUG-011"
+"CP-036";"RF-30";"El adjunto que supera el tamaño máximo configurado se rechaza";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la sección Attachments de la ficha.
+2. Pulsar Add y seleccionar un fichero por encima del límite configurado.
+3. Introducir un comentario y pulsar Save.";"Fichero por encima del límite de subida de la instancia";"Se muestra un mensaje indicando el tamaño máximo permitido y el adjunto no se añade a la tabla.";"Media";"Funcional negativo";"Valores límite";"Bloqueado";"—"
+"CP-037";"RNF-01";"El listado de empleados es operativo en viewport móvil";"Sesión iniciada como Admin. DevTools en modo dispositivo 360 × 640.";"1. Activar la emulación de dispositivo móvil a 360 × 640.
+2. Ir a PIM > Employee List.
+3. Desplegar el panel de filtros, buscar por Employee Id y revisar el resultado.";"Viewport: 360 × 640 (Galaxy S20)";"El menú lateral se colapsa, los filtros son accesibles y la tabla se consulta mediante desplazamiento horizontal sin perder columnas ni solaparse los controles.";"Media";"Responsive";"Particiones de equivalencia";"Pasa";"—"
+"CP-038";"RNF-03";"Los campos del formulario de alta tienen etiqueta asociada";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
+2. Recorrer el formulario completo usando únicamente la tecla Tab.
+3. Inspeccionar en las DevTools el marcado de cada input y su etiqueta.
+4. Comprobar en el árbol de accesibilidad el nombre expuesto de cada campo.";"Navegación por teclado + inspector de accesibilidad";"Cada campo es alcanzable por teclado en orden lógico y expone un nombre accesible mediante label asociado o aria-label.";"Media";"Accesibilidad";"Particiones de equivalencia";"Falla";"BUG-012"
