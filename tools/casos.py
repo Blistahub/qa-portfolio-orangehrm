@@ -149,7 +149,7 @@ CASOS = [
         "Usuario: dcoya.test02 · Contraseña: test",
         "El formulario muestra el error de política de contraseña y NO se crea el "
         "empleado: la operación es atómica.",
-        "Alta", "Funcional negativo", "Tabla de decisión (R5)", "Falla", "BUG-002",
+        "Alta", "Funcional negativo", "Tabla de decisión (R5)", "Pasa", "",
     ),
     (
         "CP-012", "RF-07",
@@ -201,7 +201,7 @@ CASOS = [
         "El sistema busca por coincidencia parcial y devuelve los empleados cuyo "
         "nombre contiene el texto, o bien indica con claridad que debe elegirse una "
         "sugerencia. No debe etiquetarse como «Invalid» un dato correcto.",
-        "Media", "Usabilidad", "Conjetura de errores", "Falla", "BUG-003",
+        "Media", "Usabilidad", "Conjetura de errores", "Pasa", "",
     ),
     (
         "CP-016", "RF-12",
@@ -253,7 +253,7 @@ CASOS = [
         "—",
         "Tras el borrado la aplicación retrocede a la página anterior y muestra "
         "registros. No debe quedar una tabla vacía con un total mayor que cero.",
-        "Media", "Funcional negativo", "Valores límite", "Falla", "BUG-004",
+        "Media", "Funcional negativo", "Valores límite", "Bloqueado", "",
     ),
     (
         "CP-020", "RF-15",
@@ -266,7 +266,7 @@ CASOS = [
         "Columna: Last Name (A-Z)",
         "El criterio de ordenación persiste entre páginas y la secuencia alfabética "
         "continúa de forma coherente de una página a la siguiente.",
-        "Baja", "Funcional", "Transición de estados", "Falla", "BUG-005",
+        "Baja", "Funcional", "Transición de estados", "Bloqueado", "",
     ),
     (
         "CP-021", "RF-17",
@@ -356,7 +356,7 @@ CASOS = [
         "First Name: Mónica · Last Name: Núñez",
         "El nombre se almacena y se muestra sin corrupción de caracteres, y la "
         "búsqueda lo encuentra tanto con tildes como sin ellas.",
-        "Media", "Funcional", "Particiones de equivalencia", "Falla", "BUG-007",
+        "Media", "Funcional", "Particiones de equivalencia", "Pasa", "",
     ),
     (
         "CP-028", "RF-18, RNF-02",
@@ -446,7 +446,7 @@ CASOS = [
         "Amount: -1500 · Currency: Euro · Pay Frequency: Monthly",
         "El sistema rechaza el importe con un mensaje de validación. Un salario "
         "negativo no es un dato posible.",
-        "Alta", "Funcional negativo", "Valores límite", "Falla", "BUG-010",
+        "Alta", "Funcional negativo", "Valores límite", "Pasa", "",
     ),
     (
         "CP-035", "RF-29",

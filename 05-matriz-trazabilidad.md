@@ -16,8 +16,8 @@ resultado?»**
 | Requisitos declarados | 40 |
 | Requisitos con al menos un caso | 34 (85,0 %) |
 | Requisitos sin cobertura | 6 |
-| Requisitos verificados sin incidencias | 17 |
-| Requisitos con al menos un defecto abierto | 16 |
+| Requisitos verificados sin incidencias | 24 |
+| Requisitos con al menos un defecto abierto | 6 |
 
 ## Requisito → Casos → Defectos
 
@@ -30,17 +30,17 @@ resultado?»**
 | **RF-05** | Foto de perfil de hasta 1 MB | [CP-009](02-casos-de-prueba.md#cp-009) | — | 🟢 Verificado |
 | **RF-06** | Creación opcional de credenciales de acceso | [CP-010](02-casos-de-prueba.md#cp-010) | — | 🟢 Verificado |
 | **RF-07** | Nombre de usuario de 5 a 40 caracteres y único | [CP-010](02-casos-de-prueba.md#cp-010) · [CP-012](02-casos-de-prueba.md#cp-012) | — | 🟢 Verificado |
-| **RF-08** | Política mínima de contraseña | [CP-010](02-casos-de-prueba.md#cp-010) · [CP-011](02-casos-de-prueba.md#cp-011) | [BUG-002](03-bug-reports/BUG-002.md) | 🔴 Incumplido |
-| **RF-09** | Confirmación y redirección tras guardar | [CP-001](02-casos-de-prueba.md#cp-001) · [CP-011](02-casos-de-prueba.md#cp-011) | [BUG-002](03-bug-reports/BUG-002.md) | 🔴 Incumplido |
-| **RF-10** | Filtros del listado de empleados | [CP-013](02-casos-de-prueba.md#cp-013) · [CP-027](02-casos-de-prueba.md#cp-027) | [BUG-007](03-bug-reports/BUG-007.md) | 🔴 Incumplido |
-| **RF-11** | Autocompletado de Employee Name | [CP-014](02-casos-de-prueba.md#cp-014) · [CP-015](02-casos-de-prueba.md#cp-015) | [BUG-003](03-bug-reports/BUG-003.md) | 🔴 Incumplido |
+| **RF-08** | Política mínima de contraseña | [CP-010](02-casos-de-prueba.md#cp-010) · [CP-011](02-casos-de-prueba.md#cp-011) | — | 🟢 Verificado |
+| **RF-09** | Confirmación y redirección tras guardar | [CP-001](02-casos-de-prueba.md#cp-001) · [CP-011](02-casos-de-prueba.md#cp-011) | — | 🟢 Verificado |
+| **RF-10** | Filtros del listado de empleados | [CP-013](02-casos-de-prueba.md#cp-013) · [CP-027](02-casos-de-prueba.md#cp-027) | — | 🟢 Verificado |
+| **RF-11** | Autocompletado de Employee Name | [CP-014](02-casos-de-prueba.md#cp-014) · [CP-015](02-casos-de-prueba.md#cp-015) | — | 🟢 Verificado |
 | **RF-12** | Conjunción lógica entre criterios de filtro | [CP-016](02-casos-de-prueba.md#cp-016) | — | 🟢 Verificado |
 | **RF-13** | Reset de filtros | [CP-018](02-casos-de-prueba.md#cp-018) | — | 🟢 Verificado |
-| **RF-14** | Paginación de 50 registros y total de resultados | [CP-019](02-casos-de-prueba.md#cp-019) | [BUG-004](03-bug-reports/BUG-004.md) | 🔴 Incumplido |
-| **RF-15** | Ordenación por columnas | [CP-020](02-casos-de-prueba.md#cp-020) | [BUG-005](03-bug-reports/BUG-005.md) | 🔴 Incumplido |
+| **RF-14** | Paginación de 50 registros y total de resultados | [CP-019](02-casos-de-prueba.md#cp-019) | — | 🟡 No verificado |
+| **RF-15** | Ordenación por columnas | [CP-020](02-casos-de-prueba.md#cp-020) | — | 🟡 No verificado |
 | **RF-16** | Aviso «No Records Found» | [CP-017](02-casos-de-prueba.md#cp-017) | — | 🟢 Verificado |
-| **RF-17** | Borrado individual y múltiple con confirmación | [CP-019](02-casos-de-prueba.md#cp-019) · [CP-021](02-casos-de-prueba.md#cp-021) | [BUG-004](03-bug-reports/BUG-004.md) | 🔴 Incumplido |
-| **RF-18** | Edición de datos personales | [CP-022](02-casos-de-prueba.md#cp-022) · [CP-025](02-casos-de-prueba.md#cp-025) · [CP-027](02-casos-de-prueba.md#cp-027) · [CP-028](02-casos-de-prueba.md#cp-028) | [BUG-007](03-bug-reports/BUG-007.md) | 🔴 Incumplido |
+| **RF-17** | Borrado individual y múltiple con confirmación | [CP-019](02-casos-de-prueba.md#cp-019) · [CP-021](02-casos-de-prueba.md#cp-021) | — | 🟡 No verificado |
+| **RF-18** | Edición de datos personales | [CP-022](02-casos-de-prueba.md#cp-022) · [CP-025](02-casos-de-prueba.md#cp-025) · [CP-027](02-casos-de-prueba.md#cp-027) · [CP-028](02-casos-de-prueba.md#cp-028) | — | 🟢 Verificado |
 | **RF-19** | Formato de fecha yyyy-dd-mm | [CP-023](02-casos-de-prueba.md#cp-023) | — | 🟢 Verificado |
 | **RF-20** | Rechazo de fechas con formato inválido | [CP-023](02-casos-de-prueba.md#cp-023) | — | 🟢 Verificado |
 | **RF-21** | Custom Fields según configuración de PIM | — | — | ⚪ Sin cobertura |
@@ -50,12 +50,12 @@ resultado?»**
 | **RF-25** | Contactos de emergencia | [CP-031](02-casos-de-prueba.md#cp-031) | — | 🟢 Verificado |
 | **RF-26** | Personas a cargo (Dependents) | [CP-032](02-casos-de-prueba.md#cp-032) | [BUG-008](03-bug-reports/BUG-008.md) | 🔴 Incumplido |
 | **RF-27** | Datos de puesto (Job) | — | — | ⚪ Sin cobertura |
-| **RF-28** | Componentes salariales | [CP-034](02-casos-de-prueba.md#cp-034) | [BUG-010](03-bug-reports/BUG-010.md) | 🔴 Incumplido |
+| **RF-28** | Componentes salariales | [CP-034](02-casos-de-prueba.md#cp-034) | — | 🟢 Verificado |
 | **RF-29** | Jerarquía Report-to sin ciclos | [CP-035](02-casos-de-prueba.md#cp-035) | [BUG-011](03-bug-reports/BUG-011.md) | 🔴 Incumplido |
 | **RF-30** | Adjuntos con límite de tamaño | [CP-036](02-casos-de-prueba.md#cp-036) | — | 🟡 No verificado |
 | **RN-01** | Fecha de nacimiento no posterior a hoy | [CP-024](02-casos-de-prueba.md#cp-024) · [CP-032](02-casos-de-prueba.md#cp-032) | [BUG-006](03-bug-reports/BUG-006.md) · [BUG-008](03-bug-reports/BUG-008.md) | 🔴 Incumplido |
 | **RN-02** | Incorporación no anterior al nacimiento | [CP-033](02-casos-de-prueba.md#cp-033) | [BUG-009](03-bug-reports/BUG-009.md) | 🔴 Incumplido |
-| **RN-03** | Importe salarial no negativo | [CP-034](02-casos-de-prueba.md#cp-034) | [BUG-010](03-bug-reports/BUG-010.md) | 🔴 Incumplido |
+| **RN-03** | Importe salarial no negativo | [CP-034](02-casos-de-prueba.md#cp-034) | — | 🟢 Verificado |
 | **RN-04** | Vigencia del permiso de conducir | [CP-025](02-casos-de-prueba.md#cp-025) | — | 🟢 Verificado |
 | **RN-05** | Borrado sin registros huérfanos | — | — | ⚪ Sin cobertura |
 | **RNF-01** | Usabilidad en escritorio y móvil | [CP-037](02-casos-de-prueba.md#cp-037) | — | 🟢 Verificado |

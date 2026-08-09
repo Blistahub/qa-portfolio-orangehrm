@@ -12,9 +12,9 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Estado | Casos | | Prioridad | Casos | | Técnica de diseño | Casos |
 | ------ | ----: | - | --------- | ----: | - | ----------------- | ----: |
-| Pasa | 25 | | Alta | 15 | | Particiones de equivalencia | 12 |
-| Falla | 12 | | Media | 21 | | Valores límite | 8 |
-| Bloqueado | 1 | | Baja | 2 | | Tabla de decisión | 7 |
+| Pasa | 29 | | Alta | 15 | | Particiones de equivalencia | 12 |
+| Falla | 6 | | Media | 21 | | Valores límite | 8 |
+| Bloqueado | 3 | | Baja | 2 | | Tabla de decisión | 7 |
 |  |  | |  |  | | Conjetura de errores | 6 |
 |  |  | |  |  | | Transición de estados | 5 |
 
@@ -34,30 +34,30 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 | `CP-008` | RF-01 | [Los campos de nombre no admiten dígitos ni caracteres especiales](#cp-008) | Media | Funcional negativo | Particiones de equivalencia | 🔴 Falla | [BUG-001](03-bug-reports/BUG-001.md) |
 | `CP-009` | RF-05 | [La foto de perfil por encima de 1 MB se rechaza](#cp-009) | Media | Funcional negativo | Valores límite | 🟢 Pasa | — |
 | `CP-010` | RF-06, RF-07, RF-08 | [Alta de empleado con credenciales de acceso válidas](#cp-010) | Alta | Funcional positivo | Tabla de decisión (R4) | 🟢 Pasa | — |
-| `CP-011` | RF-08, RF-09 | [Una contraseña que incumple la política no debe dejar el empleado creado](#cp-011) | Alta | Funcional negativo | Tabla de decisión (R5) | 🔴 Falla | [BUG-002](03-bug-reports/BUG-002.md) |
+| `CP-011` | RF-08, RF-09 | [Una contraseña que incumple la política no debe dejar el empleado creado](#cp-011) | Alta | Funcional negativo | Tabla de decisión (R5) | 🟢 Pasa | — |
 | `CP-012` | RF-07 | [El nombre de usuario por debajo de 5 caracteres se rechaza](#cp-012) | Media | Funcional negativo | Valores límite | 🟢 Pasa | — |
 | `CP-013` | RF-10 | [Búsqueda de empleado por Employee Id exacto](#cp-013) | Alta | Funcional / Smoke | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-014` | RF-11 | [El autocompletado de Employee Name sugiere a partir del tercer carácter](#cp-014) | Media | Funcional positivo | Valores límite | 🟢 Pasa | — |
-| `CP-015` | RF-11 | [Búsqueda con texto parcial válido sin seleccionar sugerencia](#cp-015) | Media | Usabilidad | Conjetura de errores | 🔴 Falla | [BUG-003](03-bug-reports/BUG-003.md) |
+| `CP-015` | RF-11 | [Búsqueda con texto parcial válido sin seleccionar sugerencia](#cp-015) | Media | Usabilidad | Conjetura de errores | 🟢 Pasa | — |
 | `CP-016` | RF-12 | [El filtro combinado aplica conjunción lógica entre criterios](#cp-016) | Alta | Funcional positivo | Tabla de decisión | 🟢 Pasa | — |
 | `CP-017` | RF-16 | [Búsqueda sin coincidencias muestra «No Records Found»](#cp-017) | Media | Funcional negativo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-018` | RF-13 | [El botón Reset limpia todos los filtros y restaura el listado](#cp-018) | Alta | Funcional / Smoke | Transición de estados | 🟢 Pasa | — |
-| `CP-019` | RF-14, RF-17 | [Al eliminar el último registro de la última página el listado se reubica](#cp-019) | Media | Funcional negativo | Valores límite | 🔴 Falla | [BUG-004](03-bug-reports/BUG-004.md) |
-| `CP-020` | RF-15 | [La ordenación por columna se mantiene al cambiar de página](#cp-020) | Baja | Funcional | Transición de estados | 🔴 Falla | [BUG-005](03-bug-reports/BUG-005.md) |
+| `CP-019` | RF-14, RF-17 | [Al eliminar el último registro de la última página el listado se reubica](#cp-019) | Media | Funcional negativo | Valores límite | 🟡 Bloqueado | — |
+| `CP-020` | RF-15 | [La ordenación por columna se mantiene al cambiar de página](#cp-020) | Baja | Funcional | Transición de estados | 🟡 Bloqueado | — |
 | `CP-021` | RF-17 | [Borrado múltiple de empleados con confirmación previa](#cp-021) | Alta | Funcional positivo | Transición de estados | 🟢 Pasa | — |
 | `CP-022` | RF-18, RF-22 | [Edición y guardado de los datos personales de un empleado](#cp-022) | Alta | Funcional positivo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-023` | RF-19, RF-20 | [La fecha de nacimiento con formato inválido se rechaza](#cp-023) | Media | Funcional negativo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-024` | RN-01 | [La fecha de nacimiento no admite fechas futuras](#cp-024) | Alta | Funcional negativo | Conjetura de errores | 🔴 Falla | [BUG-006](03-bug-reports/BUG-006.md) |
 | `CP-025` | RF-18, RN-04 | [Permiso de conducir con fecha de caducidad pasada](#cp-025) | Baja | Funcional positivo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-026` | RF-22 | [Los cambios en la ficha se reflejan en el listado de empleados](#cp-026) | Alta | Funcional / Smoke | Transición de estados | 🟢 Pasa | — |
-| `CP-027` | RF-10, RF-18 | [Nombres con tildes y caracteres no ASCII: guardado y búsqueda](#cp-027) | Media | Funcional | Particiones de equivalencia | 🔴 Falla | [BUG-007](03-bug-reports/BUG-007.md) |
+| `CP-027` | RF-10, RF-18 | [Nombres con tildes y caracteres no ASCII: guardado y búsqueda](#cp-027) | Media | Funcional | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-028` | RF-18, RNF-02 | [El contenido con etiquetas HTML se escapa al mostrarse](#cp-028) | Alta | Funcional negativo | Conjetura de errores | 🟢 Pasa | — |
 | `CP-029` | RF-23 | [Los campos de teléfono no admiten letras](#cp-029) | Media | Funcional negativo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-030` | RF-24 | [El correo electrónico con formato inválido se rechaza](#cp-030) | Media | Funcional negativo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-031` | RF-25 | [Alta, edición y borrado de un contacto de emergencia](#cp-031) | Alta | Funcional / Smoke | Transición de estados | 🟢 Pasa | — |
 | `CP-032` | RF-26, RN-01 | [Una persona a cargo no admite fecha de nacimiento futura](#cp-032) | Media | Funcional negativo | Conjetura de errores | 🔴 Falla | [BUG-008](03-bug-reports/BUG-008.md) |
 | `CP-033` | RN-02 | [La fecha de incorporación no puede ser anterior a la de nacimiento](#cp-033) | Media | Funcional negativo | Tabla de decisión | 🔴 Falla | [BUG-009](03-bug-reports/BUG-009.md) |
-| `CP-034` | RF-28, RN-03 | [El importe salarial no admite valores negativos](#cp-034) | Alta | Funcional negativo | Valores límite | 🔴 Falla | [BUG-010](03-bug-reports/BUG-010.md) |
+| `CP-034` | RF-28, RN-03 | [El importe salarial no admite valores negativos](#cp-034) | Alta | Funcional negativo | Valores límite | 🟢 Pasa | — |
 | `CP-035` | RF-29 | [Un empleado no puede asignarse a sí mismo como supervisor](#cp-035) | Media | Funcional negativo | Conjetura de errores | 🔴 Falla | [BUG-011](03-bug-reports/BUG-011.md) |
 | `CP-036` | RF-30 | [El adjunto que supera el tamaño máximo configurado se rechaza](#cp-036) | Media | Funcional negativo | Valores límite | 🟡 Bloqueado | — |
 | `CP-037` | RNF-01 | [El listado de empleados es operativo en viewport móvil](#cp-037) | Media | Responsive | Particiones de equivalencia | 🟢 Pasa | — |
@@ -304,7 +304,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-08, RF-09 | Alta | Funcional negativo | Tabla de decisión (R5) | 🔴 Falla | [BUG-002](03-bug-reports/BUG-002.md) |
+| RF-08, RF-09 | Alta | Funcional negativo | Tabla de decisión (R5) | 🟢 Pasa | — |
 
 **Precondiciones:** Sesión iniciada como Admin.
 
@@ -397,7 +397,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-11 | Media | Usabilidad | Conjetura de errores | 🔴 Falla | [BUG-003](03-bug-reports/BUG-003.md) |
+| RF-11 | Media | Usabilidad | Conjetura de errores | 🟢 Pasa | — |
 
 **Precondiciones:** Sesión iniciada como Admin. Existe al menos un empleado cuyo nombre empieza por «Luc».
 
@@ -487,7 +487,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-14, RF-17 | Media | Funcional negativo | Valores límite | 🔴 Falla | [BUG-004](03-bug-reports/BUG-004.md) |
+| RF-14, RF-17 | Media | Funcional negativo | Valores límite | 🟡 Bloqueado | — |
 
 **Precondiciones:** Sesión iniciada como Admin. El listado tiene más de una página y la última contiene un único registro eliminable creado para la prueba.
 
@@ -510,7 +510,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-15 | Baja | Funcional | Transición de estados | 🔴 Falla | [BUG-005](03-bug-reports/BUG-005.md) |
+| RF-15 | Baja | Funcional | Transición de estados | 🟡 Bloqueado | — |
 
 **Precondiciones:** Sesión iniciada como Admin. El listado tiene más de una página.
 
@@ -669,7 +669,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-10, RF-18 | Media | Funcional | Particiones de equivalencia | 🔴 Falla | [BUG-007](03-bug-reports/BUG-007.md) |
+| RF-10, RF-18 | Media | Funcional | Particiones de equivalencia | 🟢 Pasa | — |
 
 **Precondiciones:** Sesión iniciada como Admin.
 
@@ -827,7 +827,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-28, RN-03 | Alta | Funcional negativo | Valores límite | 🔴 Falla | [BUG-010](03-bug-reports/BUG-010.md) |
+| RF-28, RN-03 | Alta | Funcional negativo | Valores límite | 🟢 Pasa | — |
 
 **Precondiciones:** Sesión iniciada como Admin. Ficha de empleado abierta.
 

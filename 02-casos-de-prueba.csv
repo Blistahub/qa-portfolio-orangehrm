@@ -44,7 +44,7 @@
 3. Activar «Create Login Details».
 4. Introducir un usuario válido y la contraseña «test» (incumple la política).
 5. Pulsar Save.
-6. Ir a PIM > Employee List y buscar el nombre introducido.";"Usuario: dcoya.test02 · Contraseña: test";"El formulario muestra el error de política de contraseña y NO se crea el empleado: la operación es atómica.";"Alta";"Funcional negativo";"Tabla de decisión (R5)";"Falla";"BUG-002"
+6. Ir a PIM > Employee List y buscar el nombre introducido.";"Usuario: dcoya.test02 · Contraseña: test";"El formulario muestra el error de política de contraseña y NO se crea el empleado: la operación es atómica.";"Alta";"Funcional negativo";"Tabla de decisión (R5)";"Pasa";"—"
 "CP-012";"RF-07";"El nombre de usuario por debajo de 5 caracteres se rechaza";"Sesión iniciada como Admin.";"1. Ir a PIM > Add Employee.
 2. Introducir nombre y apellido válidos.
 3. Activar «Create Login Details».
@@ -58,7 +58,7 @@
 3. Escribir un tercer carácter y esperar.";"Texto: «Lu» y después «Luc»";"Con dos caracteres no se despliegan sugerencias; con tres aparece la lista de coincidencias.";"Media";"Funcional positivo";"Valores límite";"Pasa";"—"
 "CP-015";"RF-11";"Búsqueda con texto parcial válido sin seleccionar sugerencia";"Sesión iniciada como Admin. Existe al menos un empleado cuyo nombre empieza por «Luc».";"1. Ir a PIM > Employee List.
 2. Escribir «Luc» en Employee Name sin pulsar ninguna sugerencia.
-3. Pulsar Search.";"Texto: Luc";"El sistema busca por coincidencia parcial y devuelve los empleados cuyo nombre contiene el texto, o bien indica con claridad que debe elegirse una sugerencia. No debe etiquetarse como «Invalid» un dato correcto.";"Media";"Usabilidad";"Conjetura de errores";"Falla";"BUG-003"
+3. Pulsar Search.";"Texto: Luc";"El sistema busca por coincidencia parcial y devuelve los empleados cuyo nombre contiene el texto, o bien indica con claridad que debe elegirse una sugerencia. No debe etiquetarse como «Invalid» un dato correcto.";"Media";"Usabilidad";"Conjetura de errores";"Pasa";"—"
 "CP-016";"RF-12";"El filtro combinado aplica conjunción lógica entre criterios";"Sesión iniciada como Admin.";"1. Ir a PIM > Employee List.
 2. Seleccionar una Sub Unit con varios empleados.
 3. Seleccionar además un Employment Status.
@@ -73,11 +73,11 @@
 "CP-019";"RF-14, RF-17";"Al eliminar el último registro de la última página el listado se reubica";"Sesión iniciada como Admin. El listado tiene más de una página y la última contiene un único registro eliminable creado para la prueba.";"1. Ir a PIM > Employee List.
 2. Navegar hasta la última página de la paginación.
 3. Eliminar el único registro que contiene y confirmar.
-4. Observar el listado resultante.";"—";"Tras el borrado la aplicación retrocede a la página anterior y muestra registros. No debe quedar una tabla vacía con un total mayor que cero.";"Media";"Funcional negativo";"Valores límite";"Falla";"BUG-004"
+4. Observar el listado resultante.";"—";"Tras el borrado la aplicación retrocede a la página anterior y muestra registros. No debe quedar una tabla vacía con un total mayor que cero.";"Media";"Funcional negativo";"Valores límite";"Bloqueado";"—"
 "CP-020";"RF-15";"La ordenación por columna se mantiene al cambiar de página";"Sesión iniciada como Admin. El listado tiene más de una página.";"1. Ir a PIM > Employee List.
 2. Ordenar por Last Name en orden ascendente.
 3. Comprobar el orden de la primera página.
-4. Avanzar a la página siguiente y comprobar el orden.";"Columna: Last Name (A-Z)";"El criterio de ordenación persiste entre páginas y la secuencia alfabética continúa de forma coherente de una página a la siguiente.";"Baja";"Funcional";"Transición de estados";"Falla";"BUG-005"
+4. Avanzar a la página siguiente y comprobar el orden.";"Columna: Last Name (A-Z)";"El criterio de ordenación persiste entre páginas y la secuencia alfabética continúa de forma coherente de una página a la siguiente.";"Baja";"Funcional";"Transición de estados";"Bloqueado";"—"
 "CP-021";"RF-17";"Borrado múltiple de empleados con confirmación previa";"Sesión iniciada como Admin. Existen al menos dos empleados de prueba.";"1. Ir a PIM > Employee List.
 2. Marcar la casilla de dos empleados de prueba.
 3. Pulsar «Delete Selected».
@@ -103,7 +103,7 @@
 "CP-027";"RF-10, RF-18";"Nombres con tildes y caracteres no ASCII: guardado y búsqueda";"Sesión iniciada como Admin.";"1. Crear un empleado con acentos en el nombre.
 2. Comprobar que la ficha y el listado los muestran correctamente.
 3. Buscar el empleado escribiendo el nombre SIN tildes.
-4. Buscar el empleado escribiendo el nombre CON tildes.";"First Name: Mónica · Last Name: Núñez";"El nombre se almacena y se muestra sin corrupción de caracteres, y la búsqueda lo encuentra tanto con tildes como sin ellas.";"Media";"Funcional";"Particiones de equivalencia";"Falla";"BUG-007"
+4. Buscar el empleado escribiendo el nombre CON tildes.";"First Name: Mónica · Last Name: Núñez";"El nombre se almacena y se muestra sin corrupción de caracteres, y la búsqueda lo encuentra tanto con tildes como sin ellas.";"Media";"Funcional";"Particiones de equivalencia";"Pasa";"—"
 "CP-028";"RF-18, RNF-02";"El contenido con etiquetas HTML se escapa al mostrarse";"Sesión iniciada como Admin.";"1. Crear un empleado cuyo First Name contenga una etiqueta HTML.
 2. Guardar y abrir la ficha.
 3. Consultar el registro en PIM > Employee List.";"First Name: <b>Lucia</b>";"El texto se muestra literalmente, tal y como se introdujo, sin interpretarse como marcado. Comprobación del escapado de salida.";"Alta";"Funcional negativo";"Conjetura de errores";"Pasa";"—"
@@ -128,7 +128,7 @@
 "CP-034";"RF-28, RN-03";"El importe salarial no admite valores negativos";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Salary y pulsar Add.
 2. Seleccionar componente salarial, divisa y periodicidad.
 3. Introducir un importe negativo.
-4. Pulsar Save.";"Amount: -1500 · Currency: Euro · Pay Frequency: Monthly";"El sistema rechaza el importe con un mensaje de validación. Un salario negativo no es un dato posible.";"Alta";"Funcional negativo";"Valores límite";"Falla";"BUG-010"
+4. Pulsar Save.";"Amount: -1500 · Currency: Euro · Pay Frequency: Monthly";"El sistema rechaza el importe con un mensaje de validación. Un salario negativo no es un dato posible.";"Alta";"Funcional negativo";"Valores límite";"Pasa";"—"
 "CP-035";"RF-29";"Un empleado no puede asignarse a sí mismo como supervisor";"Sesión iniciada como Admin. Ficha de empleado abierta.";"1. Ir a la pestaña Report-to.
 2. En «Assigned Supervisors» pulsar Add.
 3. Introducir el nombre del propio empleado y seleccionarlo.
