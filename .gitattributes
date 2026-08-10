@@ -1,0 +1,10 @@
+# Finales de línea normalizados a LF en el repositorio.
+# Sin esto, los ficheros generados en Windows (CRLF) y en el runner de CI
+# (LF) nunca coinciden, y la comprobación de "entregables al día" falla
+# siempre por un motivo que no tiene nada que ver con su contenido.
+* text=auto eol=lf
+
+# Binarios: no tocar nunca.
+*.xlsx binary
+*.png  binary
+*.jpg  binary

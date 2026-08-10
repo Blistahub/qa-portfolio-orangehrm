@@ -73,8 +73,8 @@ HUECOS = {
     "RN-05": "No verificable sin acceso a la base de datos (riesgo R-06).",
     "RNF-04": "Solo se registra el tiempo percibido; medir sobre una instancia "
               "pública compartida no daría cifras válidas.",
-    "RNF-05": "Cubierto transversalmente por la estrategia (los 15 casos de "
-              "prioridad Alta se ejecutaron en 3 navegadores), sin caso dedicado.",
+    "RNF-05": "No ejecutado en el ciclo 1. La reejecución de los 15 casos de "
+              "prioridad Alta en Firefox y Edge queda planificada para el ciclo 2.",
 }
 
 PLANTILLA = """# 05 — Matriz de trazabilidad
@@ -168,7 +168,8 @@ def generar():
         huecos=huecos,
     )
     destino = RAIZ / "05-matriz-trazabilidad.md"
-    destino.write_text(texto, encoding="utf-8")
+    with open(destino, "w", encoding="utf-8", newline="\n") as f:
+        f.write(texto)
     print(f"  ✓ {destino.name} — {cubiertos}/{len(REQUISITOS)} requisitos cubiertos, "
           f"{con_defecto} con defecto, {sin_cobertura} sin cobertura")
 

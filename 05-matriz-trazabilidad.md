@@ -78,7 +78,7 @@ comportamiento que nadie ha pedido.
 - **RF-27** — Cubierto parcialmente por CP-033 (coherencia de fechas). Los catálogos de puesto y categoría quedan para el ciclo 2.
 - **RN-05** — No verificable sin acceso a la base de datos (riesgo R-06).
 - **RNF-04** — Solo se registra el tiempo percibido; medir sobre una instancia pública compartida no daría cifras válidas.
-- **RNF-05** — Cubierto transversalmente por la estrategia (los 15 casos de prioridad Alta se ejecutaron en 3 navegadores), sin caso dedicado.
+- **RNF-05** — No ejecutado en el ciclo 1. La reejecución de los 15 casos de prioridad Alta en Firefox y Edge queda planificada para el ciclo 2.
 
 Declarar los huecos es parte del entregable. Una matriz que muestre el 100 % de cobertura sin
 explicar cómo lo consigue es menos fiable que una que reconoce sus límites: en la práctica, el 100 %

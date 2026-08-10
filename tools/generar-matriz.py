@@ -43,7 +43,9 @@ def filas():
 # --------------------------------------------------------------------------- CSV
 def generar_csv(destino):
     with open(destino, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f, delimiter=";", quoting=csv.QUOTE_ALL)
+        # lineterminator explícito: si no, csv escribe CRLF y el fichero deja de
+        # ser idéntico entre Windows y Linux, rompiendo la comprobación de CI.
+        w = csv.writer(f, delimiter=";", quoting=csv.QUOTE_ALL, lineterminator="\n")
         w.writerow(COLUMNAS)
         w.writerows(filas())
     print(f"  ✓ {destino.name}")
@@ -229,7 +231,10 @@ def generar_md(destino):
             f"<sub>[↑ volver al resumen](#resumen-de-la-matriz)</sub>\n"
         )
 
-    destino.write_text("\n".join(partes), encoding="utf-8")
+    # newline="\n" explícito: `write_text` traduciría a CRLF en Windows y el
+    # fichero dejaría de ser idéntico al que genera el runner de CI en Linux.
+    with open(destino, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(partes))
     print(f"  ✓ {destino.name}")
 
 
