@@ -1,0 +1,72 @@
+name: Verificar documentación
+
+# La documentación de QA también se rompe: se renumera un caso, se retira un
+# defecto, se cambia una severidad, y media docena de referencias cruzadas
+# dejan de cuadrar. Esta comprobación es el equivalente documental de un test
+# de humo, y corre en cada push.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  consistencia:
+    name: Consistencia de casos, defectos y trazabilidad
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install --quiet openpyxl
+
+      - name: Comprobar que la documentación no se contradice
+        run: python tools/verificar.py
+
+      - name: Comprobar que los entregables generados están al día
+        run: |
+          python tools/generar-matriz.py
+          python tools/generar-trazabilidad.py
+          if ! git diff --quiet -- 02-casos-de-prueba.md 02-casos-de-prueba.csv 05-matriz-trazabilidad.md; then
+            echo "::error::Los entregables generados no coinciden con tools/casos.py."
+            echo "Ejecuta 'python tools/generar-matriz.py' y 'python tools/generar-trazabilidad.py' y vuelve a commitear."
+            git diff --stat -- 02-casos-de-prueba.md 02-casos-de-prueba.csv 05-matriz-trazabilidad.md
+            exit 1
+          fi
+          echo "Entregables al día."
+
+      - name: Comprobar que no hay enlaces internos rotos
+        run: |
+          python - <<'PY'
+          import re, sys
+          from pathlib import Path
+
+          raiz = Path(".")
+          rotos = []
+          for md in raiz.rglob("*.md"):
+              if ".git" in md.parts:
+                  continue
+              texto = md.read_text(encoding="utf-8")
+              # se ignora el contenido de los bloques de código
+              texto = re.sub(r"```.*?```", "", texto, flags=re.S)
+              for destino in re.findall(r"\]\(([^)\s]+)\)", texto):
+                  if destino.startswith(("http://", "https://", "#", "mailto:")):
+                      continue
+                  ruta = destino.split("#")[0]
+                  if ruta and not (md.parent / ruta).exists():
+                      rotos.append(f"{md} -> {destino}")
+
+          if rotos:
+              for r in rotos:
+                  print(f"::error::enlace roto: {r}")
+              sys.exit(1)
+          print("Sin enlaces internos rotos.")
+          PY

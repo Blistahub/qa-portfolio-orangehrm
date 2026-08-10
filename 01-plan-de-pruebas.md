@@ -88,7 +88,7 @@ Delimitar es la mitad del trabajo. Cada exclusión lleva su motivo:
 | **Smoke**          | Subconjunto de 5 casos críticos (`CP-001`, `CP-013`, `CP-018`, `CP-026`, `CP-031`) ejecutado antes de cualquier ciclo completo. Si falla uno, el ciclo no arranca. |
 | **Regresión**      | Reejecución de los casos de prioridad Alta tras cada corrección de defecto.                     |
 | **Exploratorio**   | Dos sesiones cronometradas de 60 min con carta de exploración: (1) validaciones de formulario en la ficha del empleado, (2) coherencia de datos entre listado y ficha. Los hallazgos se convierten en casos formales o en defectos. |
-| **Cross-browser**  | Los casos de prioridad Alta se ejecutan en Chrome, Firefox y Edge; el resto solo en Chrome.      |
+| **Cross-browser**  | **Planificado para el ciclo 2**, no ejecutado en el ciclo 1. Los 15 casos de prioridad Alta se reejecutarán en Firefox y Edge. El ciclo 1 se ejecuta íntegramente en Chrome. |
 | **Responsive**     | Los casos `CP-032` y `CP-033` en viewport móvil 360 × 640 px.                                    |
 | **Accesibilidad**  | Comprobación básica de etiquetado de formularios y navegación por teclado (`RNF-03`). No se realiza auditoría WCAG completa. |
 | **Retest**         | Verificación dirigida de cada defecto corregido antes de darlo por cerrado.                      |
@@ -129,7 +129,7 @@ un empleado creado a medias. Es el tipo de caso que solo aparece si se modela la
 | **Versión**           | OrangeHRM OS 5.x — la build concreta se anota en el informe de ejecución en el momento del ciclo. |
 | **Credenciales**      | `Admin` / `admin123` (rol Administrador, publicadas por el propio fabricante en la pantalla de acceso). |
 | **Sistema operativo** | Windows 11 Pro 24H2                                                                    |
-| **Navegadores**       | Google Chrome (estable), Mozilla Firefox (estable), Microsoft Edge (estable)           |
+| **Navegadores**       | Google Chrome (estable). Firefox y Edge planificados para el ciclo 2 (ver §3.2)         |
 | **Resoluciones**      | Escritorio 1920 × 1080 · Móvil emulado 360 × 640 (Chrome DevTools, perfil Galaxy S20)  |
 | **Herramientas**      | DevTools del navegador (pestaña *Network* para inspeccionar el contrato de la API interna), ShareX para captura de evidencias, Markdown + Excel para la documentación. |
 

@@ -4,7 +4,7 @@
 | --- | --- |
 | **Ciclo** | Ciclo 1 — pruebas funcionales de sistema |
 | **Módulo** | PIM — *Personal Information Management* |
-| **Entorno** | `opensource-demo.orangehrmlive.com` (OrangeHRM OS 5.x) · Windows 11 Pro 24H2 · Chrome / Firefox / Edge |
+| **Entorno** | `opensource-demo.orangehrmlive.com` (OrangeHRM OS 5.x) · Windows 11 Pro 24H2 · Chrome (estable) |
 | **Casos planificados** | 38 |
 | **Autor** | David Coya Moreno — QA Tester |
 
@@ -180,7 +180,7 @@ sería menos fiable que uno que reconoce dónde no ha llegado:
 | RF-27 — Datos de puesto (*Job*) | Cubierto solo de forma parcial a través de CP-033, centrado en la coherencia de fechas. Los catálogos de puesto, categoría y ubicación quedan pendientes del ciclo 2. |
 | RN-05 — Borrado sin registros huérfanos | No verificable sin acceso a la base de datos (riesgo R-06 del plan). Pendiente de un entorno propio. |
 | RNF-04 — Tiempos de respuesta | Solo se registra el tiempo **percibido**; no se mide. Medir sobre una instancia pública compartida daría cifras sin valor, y generar carga está fuera del alcance por criterio. |
-| RNF-05 — Equivalencia entre navegadores | Cubierto **transversalmente** por la estrategia —los 15 casos de prioridad Alta se ejecutaron en Chrome, Firefox y Edge— pero sin un caso dedicado. Se contabiliza como no cubierto para no inflar la cifra. |
+| RNF-05 — Equivalencia entre navegadores | **No ejecutado en el ciclo 1.** La reejecución de los 15 casos de prioridad Alta en Firefox y Edge queda planificada para el ciclo 2. Se declara como hueco abierto en lugar de darlo por cubierto. |
 | Segregación de permisos por rol ESS | Riesgo R-04 del plan: la demo no permite un usuario ESS estable con credenciales conocidas. |
 
 Ninguno de estos huecos afecta a un requisito de prioridad Alta.

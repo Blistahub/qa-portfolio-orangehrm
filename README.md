@@ -6,6 +6,12 @@ del plan de pruebas a la recomendación de release.**
 38 casos diseñados con técnicas formales · 6 defectos confirmados y 6 hipótesis descartadas ·
 trazabilidad requisito → caso → defecto · análisis de causa raíz sobre las peticiones de la API.
 
+[![Verificar documentación](https://github.com/Blistahub/qa-portfolio-orangehrm/actions/workflows/verificar.yml/badge.svg)](https://github.com/Blistahub/qa-portfolio-orangehrm/actions/workflows/verificar.yml)
+![Casos de prueba](https://img.shields.io/badge/casos-38-1F3A5F)
+![Defectos confirmados](https://img.shields.io/badge/defectos_confirmados-6-c0392b)
+![Cobertura de requisitos](https://img.shields.io/badge/cobertura_requisitos-85%25-2d6a4f)
+![Veredicto](https://img.shields.io/badge/veredicto-apto_con_reservas-e08b00)
+
 <sub>David Coya Moreno — QA Tester · [LinkedIn](https://linkedin.com/in/david-coya-moreno) ·
 davidcoyamoreno@gmail.com</sub>
 
@@ -162,7 +168,7 @@ de ellos comparten causa raíz.
 | **URL** | `https://opensource-demo.orangehrmlive.com` |
 | **Credenciales** | `Admin` / `admin123` — publicadas por el fabricante en su pantalla de acceso |
 | **Sistema** | Windows 11 Pro 24H2 |
-| **Navegadores** | Chrome · Firefox · Edge (los 15 casos de prioridad Alta en los tres) |
+| **Navegadores** | Chrome (estable). La ejecución cruzada en Firefox y Edge está planificada para el ciclo 2 |
 | **Herramientas** | DevTools (pestaña *Network* y panel *Accessibility*) · Markdown · Excel · Python para la generación de entregables |
 
 ### Nota sobre el entorno de pruebas
