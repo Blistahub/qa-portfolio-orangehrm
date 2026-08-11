@@ -23,10 +23,10 @@ davidcoyamoreno@gmail.com</sub>
 | --- | --- |
 | **Aplicación** | OrangeHRM OS 5.x — instancia pública de demostración |
 | **Módulo** | PIM (*Personal Information Management*) |
-| **Casos ejecutados** | 35 de 38 — **92,1 %** |
-| **Tasa de éxito** | **82,9 %** (29 superados · 6 fallados · 3 bloqueados) |
+| **Casos ejecutados** | 36 de 38 — **94,7 %** |
+| **Tasa de éxito** | **83,3 %** (30 superados · 6 fallados · 2 bloqueados) |
 | **Defectos confirmados** | **6**, todos de severidad Media. Ninguno Crítico ni Alto |
-| **Hipótesis descartadas** | **6** — 4 resultaron ser comportamiento correcto, 2 no verificables |
+| **Hipótesis descartadas** | **6** — 5 resultaron ser comportamiento correcto, 1 no verificable |
 | **Cobertura de requisitos** | **85 %** (34 de 40), con los 6 huecos declarados y justificados |
 | **Veredicto** | ⚠️ **APTO CON RESERVAS** — sin defectos Altos, pero la cobertura de ejecución queda por debajo del criterio de salida |
 
@@ -111,9 +111,9 @@ regresión.
 - **[Fuera de alcance explícito y justificado](01-plan-de-pruebas.md#22-qué-no-entra-en-el-alcance--y-por-qué):**
   cada exclusión lleva su motivo. Nada de pruebas de carga ni de seguridad ofensiva contra un
   servicio ajeno sin autorización — y dicho en el documento, no omitido.
-- **Tres casos bloqueados se cuentan como bloqueados**, no como superados ni fallados. Y se
-  descartó crear 50 empleados en una demo pública compartida para desbloquear dos de ellos: habría
-  contaminado el entorno de los demás usuarios por una comprobación de severidad Baja.
+- **Los casos bloqueados se cuentan como bloqueados**, no como superados ni fallados. Y se
+  descartó borrar 37 empleados de una demo pública compartida para desbloquear uno de ellos: habría
+  contaminado el entorno de los demás usuarios por una comprobación de severidad Media.
 - **Severidad y prioridad se clasifican por separado**, y en
   [2 de los 6 defectos divergen](03-bug-reports/README.md#criterios-de-clasificación-aplicados).
 - **Tres defectos se marcan «requiere confirmación de negocio»** porque dependen de reglas que el

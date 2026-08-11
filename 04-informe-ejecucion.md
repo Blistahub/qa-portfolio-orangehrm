@@ -16,8 +16,8 @@
 Crítica ni Alta. Los 6 defectos confirmados son de severidad Media y ninguno bloquea un flujo de
 negocio ni provoca pérdida de datos.
 
-La reserva no está en la calidad del producto sino en la **cobertura**: 3 casos quedaron bloqueados
-por limitaciones del entorno de demostración, de modo que el ciclo se queda en un 92,1 % de
+La reserva no está en la calidad del producto sino en la **cobertura**: 2 casos quedaron bloqueados
+por limitaciones del entorno de demostración, de modo que el ciclo se queda en un 94,7 % de
 ejecución frente al 95 % exigido en el §6.2 del [plan de pruebas](01-plan-de-pruebas.md).
 
 ---
@@ -27,20 +27,20 @@ ejecución frente al 95 % exigido en el §6.2 del [plan de pruebas](01-plan-de-p
 | Métrica | Valor |
 | --- | ---: |
 | Casos planificados | 38 |
-| Casos ejecutados | 35 |
-| **Cobertura de ejecución** | **92,1 %** |
-| Casos superados | 29 |
+| Casos ejecutados | 36 |
+| **Cobertura de ejecución** | **94,7 %** |
+| Casos superados | 30 |
 | Casos fallados | 6 |
-| Casos bloqueados | 3 |
-| **Tasa de éxito sobre ejecutados** | **82,9 %** |
+| Casos bloqueados | 2 |
+| **Tasa de éxito sobre ejecutados** | **83,3 %** |
 | Casos de prioridad Alta ejecutados | 15 / 15 — **100 %** |
 
 ```mermaid
 pie showData
     title Estado de los 38 casos de prueba
-    "Superados" : 29
+    "Superados" : 30
     "Fallados" : 6
-    "Bloqueados" : 3
+    "Bloqueados" : 2
 ```
 
 ### Resultado por prioridad
@@ -49,24 +49,26 @@ pie showData
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Alta | 15 | 14 | 1 | 0 | 93,3 % |
 | Media | 21 | 14 | 5 | 2 | 73,7 % |
-| Baja | 2 | 1 | 0 | 1 | 100 % |
-| **Total** | **38** | **29** | **6** | **3** | **82,9 %** |
+| Baja | 2 | 2 | 0 | 0 | 100 % |
+| **Total** | **38** | **30** | **6** | **2** | **83,3 %** |
 
 ### Casos bloqueados
 
 | Caso | Motivo del bloqueo |
 | --- | --- |
-| [CP-019](02-casos-de-prueba.md#cp-019) — paginación tras borrar el último registro | La instancia contenía **4 empleados** en el momento del ciclo y la paginación es de 50: no existe una segunda página que probar. |
-| [CP-020](02-casos-de-prueba.md#cp-020) — persistencia de la ordenación al paginar | Mismo motivo. |
+| [CP-019](02-casos-de-prueba.md#cp-019) — paginación tras borrar el último registro | Reproducirlo exige que la última página contenga **exactamente un registro**. Con los 188 empleados de la instancia, la última contiene 38: conseguir esa condición obligaría a borrar 37 registros de una demo pública compartida. Descartado por criterio. |
 | [CP-036](02-casos-de-prueba.md#cp-036) — límite de tamaño de adjunto | El límite configurado no es consultable sin acceso a la configuración del servidor, y subir un fichero de gran tamaño a una instancia pública compartida se descarta por criterio (§2.2 del plan). |
 
-Los tres se registran como **bloqueados y no como fallados ni superados**. Un caso que no ha podido
+Los dos se registran como **bloqueados y no como fallados ni superados**. Un caso que no ha podido
 ejecutarse no aporta información sobre la calidad del producto, y darlo por bueno en cualquiera de
 los dos sentidos sería inventarse un resultado.
 
-Se descartó deliberadamente **crear 50 empleados** en la instancia pública para forzar la
-paginación: habría contaminado el entorno del resto de usuarios de la demo por dos comprobaciones de
-severidad Baja y Media. El detalle está en
+**Nota sobre la volatilidad del entorno.** CP-019 y CP-020 estuvieron bloqueados en el primer
+intento por un motivo distinto: la instancia contenía entonces **4 empleados** y no existía una
+segunda página que probar. Al volver sobre ella más tarde se había repoblado hasta **188**, lo que
+permitió ejecutar CP-020 —resultado *Pasa*— y dejó CP-019 bloqueado por la razón indicada arriba.
+Es el **riesgo R-01** del plan actuando en los dos sentidos, y la razón por la que cada caso de este
+ciclo crea sus propios datos. El detalle está en
 [`03-bug-reports/DESCARTADOS.md`](03-bug-reports/DESCARTADOS.md).
 
 ---
@@ -138,8 +140,7 @@ Tres consecuencias que conviene poner por delante en la reunión de triaje:
 ### El contrapeso: dónde la aplicación valida bien
 
 Un informe que solo enumere fallos describe mal el producto. De las 12 hipótesis de defecto
-formuladas durante el diseño de los casos, **4 resultaron ser comportamiento correcto**, y en las
-cuatro la validación estaba presente y bien ubicada:
+formuladas durante el diseño de los casos, **5 resultaron ser comportamiento correcto**:
 
 | Comprobación | Resultado |
 | --- | --- |
@@ -147,6 +148,7 @@ cuatro la validación estaba presente y bien ubicada:
 | Búsqueda por texto parcial | Funciona con normalidad. |
 | Búsqueda con y sin tildes | La colación equipara diacríticos. |
 | Importe salarial negativo | El campo lo rechaza con mensaje específico. |
+| Ordenación al cambiar de página | `sortField` y `sortOrder` se propagan correctamente al paginar. |
 
 El detalle de cada comprobación está en
 [`03-bug-reports/DESCARTADOS.md`](03-bug-reports/DESCARTADOS.md). La conclusión matizada es que **la
@@ -191,15 +193,15 @@ Ninguno de estos huecos afecta a un requisito de prioridad Alta.
 
 | Criterio (§6.2 del plan) | Objetivo | Resultado | ¿Cumple? |
 | --- | --- | --- | :---: |
-| Casos ejecutados | ≥ 95 % | 92,1 % | ❌ |
+| Casos ejecutados | ≥ 95 % | 94,7 % | ❌ |
 | Casos de prioridad Alta ejecutados | 100 % | 100 % | ✅ |
 | Defectos abiertos Críticos o Altos | 0 | **0** | ✅ |
 | Defectos Medios con análisis de impacto documentado | 100 % | 100 % | ✅ |
 | Informe de ejecución emitido con recomendación | Sí | Sí | ✅ |
 
-**Cuatro de cinco criterios cumplidos.** El incumplido es el de cobertura de ejecución, y su causa
-está identificada: los 3 casos bloqueados lo están por limitaciones del **entorno de demostración**,
-no por defectos del producto ni por falta de tiempo. Es una distinción que cambia la decisión: no
+**Cuatro de cinco criterios cumplidos**, y el quinto se queda a tres décimas: 94,7 % frente al 95 %
+exigido. La causa está identificada: los 2 casos bloqueados lo están por limitaciones del **entorno
+de demostración**, no por defectos del producto ni por falta de tiempo. Es una distinción que cambia la decisión: no
 hay riesgo desconocido sobre la funcionalidad, hay funcionalidad que este entorno no permite probar.
 
 ---
@@ -218,8 +220,8 @@ obstáculo alguno.
 
 Las dos reservas, en orden de importancia:
 
-1. **Cobertura de ejecución al 92,1 %.** Tres casos sin ejecutar por limitaciones del entorno. Antes
-   de un release real conviene cerrarlos en un entorno con volumen de datos suficiente.
+1. **Cobertura de ejecución al 94,7 %.** Dos casos sin ejecutar por limitaciones del entorno. Antes
+   de un release real conviene cerrarlos en un entorno con volumen de datos controlado.
 2. **Validación de dominio ausente en 5 endpoints.** No bloquea, pero degrada el dato maestro de
    forma acumulativa y silenciosa.
 
@@ -230,12 +232,12 @@ Las dos reservas, en orden de importancia:
 | 1 | Confirmar con negocio las tres reglas derivadas marcadas *requiere confirmación* (RN-01 y RN-02) | Condicionan si BUG-006, BUG-008 y BUG-009 son defectos o comportamiento previsto. Sin esa respuesta, la corrección puede ser innecesaria o quedarse corta. |
 | 2 | Abordar la validación de fechas en servidor como una sola línea de trabajo | Cierra 3 defectos con un esfuerzo notablemente menor que corregirlos por separado. |
 | 3 | Añadir validación de dominio en los endpoints de nombre y de supervisión | Cierra BUG-001 y BUG-011. |
-| 4 | Ejecutar CP-019, CP-020 y CP-036 en un entorno con volumen de datos propio | Es lo único que separa al ciclo del criterio de salida. |
+| 4 | Ejecutar CP-019 y CP-036 en un entorno con volumen de datos propio | Es lo único que separa al ciclo del criterio de salida. |
 | 5 | Planificar [BUG-012](03-bug-reports/BUG-012.md) dentro de una revisión de accesibilidad | Conviene corregirlo en el componente compartido, no formulario a formulario. |
 
 ### Condición para levantar las reservas
 
-El módulo pasará a **apto sin reservas** cuando los tres casos bloqueados se ejecuten con resultado
+El módulo pasará a **apto sin reservas** cuando los dos casos bloqueados se ejecuten con resultado
 satisfactorio en un entorno adecuado y los defectos de la línea de validación de fechas estén
 corregidos y con retest superado. Se estima un ciclo de verificación de **medio día**, una vez
 disponible el entorno.

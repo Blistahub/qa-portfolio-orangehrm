@@ -77,7 +77,7 @@
 "CP-020";"RF-15";"La ordenación por columna se mantiene al cambiar de página";"Sesión iniciada como Admin. El listado tiene más de una página.";"1. Ir a PIM > Employee List.
 2. Ordenar por Last Name en orden ascendente.
 3. Comprobar el orden de la primera página.
-4. Avanzar a la página siguiente y comprobar el orden.";"Columna: Last Name (A-Z)";"El criterio de ordenación persiste entre páginas y la secuencia alfabética continúa de forma coherente de una página a la siguiente.";"Baja";"Funcional";"Transición de estados";"Bloqueado";"—"
+4. Avanzar a la página siguiente y comprobar el orden.";"Columna: Last Name (A-Z)";"El criterio de ordenación persiste entre páginas y la secuencia alfabética continúa de forma coherente de una página a la siguiente.";"Baja";"Funcional";"Transición de estados";"Pasa";"—"
 "CP-021";"RF-17";"Borrado múltiple de empleados con confirmación previa";"Sesión iniciada como Admin. Existen al menos dos empleados de prueba.";"1. Ir a PIM > Employee List.
 2. Marcar la casilla de dos empleados de prueba.
 3. Pulsar «Delete Selected».

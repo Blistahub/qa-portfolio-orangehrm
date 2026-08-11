@@ -1,8 +1,8 @@
 # Hipótesis de defecto descartadas
 
 Seis comportamientos que durante el diseño de los casos se consideraron sospechosos y que, al
-comprobarlos contra la aplicación, **resultaron ser correctos o no verificables en este entorno**.
-No se han reportado como defectos.
+comprobarlos contra la aplicación, **resultaron ser correctos en cinco casos y no verificables en
+uno**. No se han reportado como defectos.
 
 Este documento existe porque el trabajo que lleva detrás es exactamente igual de real que el de los
 defectos confirmados, y porque un defecto mal reportado cuesta tiempo a todo el equipo: el
@@ -20,7 +20,7 @@ del mismo tester baja. **Comprobar antes de reportar es parte del trabajo, no un
 | La búsqueda no encuentra nombres con tilde | [CP-027](../02-casos-de-prueba.md#cp-027) | ❌ Descartada | La búsqueda es insensible a diacríticos |
 | El campo de importe salarial acepta negativos | [CP-034](../02-casos-de-prueba.md#cp-034) | ❌ Descartada | El campo rechaza el importe negativo |
 | La paginación no retrocede tras borrar el último registro | [CP-019](../02-casos-de-prueba.md#cp-019) | ⚠️ No verificable | El entorno no tiene registros suficientes para paginar |
-| La ordenación se pierde al cambiar de página | [CP-020](../02-casos-de-prueba.md#cp-020) | ⚠️ No verificable | Mismo motivo |
+| La ordenación se pierde al cambiar de página | [CP-020](../02-casos-de-prueba.md#cp-020) | ❌ Descartada | La ordenación se propaga correctamente al paginar |
 
 ---
 
@@ -116,45 +116,72 @@ equipo de desarrollo habría cerrado como no reproducible.
 
 ---
 
-## 5 y 6. Los dos hallazgos de paginación no son verificables en este entorno
+## 5. La ordenación sí se mantiene al cambiar de página
 
-**Hipótesis.** (a) Al borrar el último registro de la última página, el listado queda vacío sin
-retroceder de página. (b) La ordenación por columna se pierde al cambiar de página.
+**Hipótesis.** El listado reconstruye la consulta al paginar sin arrastrar el criterio de
+ordenación, de modo que la secuencia alfabética se rompe entre páginas.
 
-**Impedimento.** Ambas requieren un listado con **más de una página**. La paginación de PIM es de 50
-registros y, en el momento de la ejecución, la instancia de demostración contenía **4 empleados**:
+**Historia de esta comprobación, que merece contarse.** En el primer intento el caso quedó
+**bloqueado**: la instancia contenía entonces **4 empleados** y, con una paginación de 50, no existía
+una segunda página que probar.
 
 ```
 GET /api/v2/pim/employees?limit=1&offset=0…   →  meta.total = 4
 ```
 
-La instancia pública se restablece periódicamente y el volumen de datos varía sin aviso — es
-exactamente el **riesgo R-01** declarado en el [plan de pruebas](../01-plan-de-pruebas.md#7-análisis-de-riesgos).
+Se descartó deliberadamente crear 50 empleados para forzar la situación: habría contaminado el
+entorno compartido de los demás usuarios de la demo por una comprobación de severidad Baja.
 
-**Decisión.** Los casos [CP-019](../02-casos-de-prueba.md#cp-019) y
-[CP-020](../02-casos-de-prueba.md#cp-020) se registran como **bloqueados**, no como fallados ni como
-superados. Un caso que no ha podido ejecutarse no aporta información sobre la calidad del producto,
-y darlo por bueno en cualquiera de los dos sentidos sería inventarse un resultado.
+Al volver sobre el entorno más tarde, la instancia se había repoblado hasta **188 empleados**. Es el
+**riesgo R-01** del [plan de pruebas](../01-plan-de-pruebas.md#7-análisis-de-riesgos) —el volumen de
+datos varía sin aviso— actuando esta vez a favor: el caso pasó a ser ejecutable y se ejecutó.
 
-**Descartado deliberadamente:** crear 50 empleados en una instancia pública compartida para forzar
-la paginación. Habría contaminado el entorno de todos los demás usuarios de la demo por una
-comprobación de severidad Baja. Queda pendiente de un entorno propio, y así se recoge en el
-[informe de ejecución](../04-informe-ejecucion.md).
+**Comprobación.** Ordenar el listado por una columna y avanzar a la página 2, comparando las dos
+peticiones.
+
+```
+# al ordenar
+GET …/pim/employees?limit=50&offset=0 &sortField=employee.firstName&sortOrder=ASC
+# al pasar a la página 2
+GET …/pim/employees?limit=50&offset=50&sortField=employee.firstName&sortOrder=ASC
+```
+
+**Resultado.** `sortField` y `sortOrder` **se propagan correctamente**. La hipótesis queda
+descartada y [CP-020](../02-casos-de-prueba.md#cp-020) pasa a estado *Pasa*.
+
+## 6. La paginación tras borrar el último registro sigue sin ser verificable
+
+**Hipótesis.** Al borrar el único registro de la última página, el listado queda vacío sin retroceder
+de página.
+
+**Impedimento.** Reproducirla exige que la última página contenga **exactamente un registro**, es
+decir, un total de la forma `50·n + 1`. Con 188 empleados, la última página contiene 38: borrar uno
+no vacía la página. Conseguir la condición exigiría borrar 37 empleados de una instancia pública
+compartida, lo que queda descartado sin discusión.
+
+**Decisión.** [CP-019](../02-casos-de-prueba.md#cp-019) se registra como **bloqueado**, no como
+fallado ni como superado. Un caso que no ha podido ejecutarse no aporta información sobre la calidad
+del producto, y darlo por bueno en cualquiera de los dos sentidos sería inventarse un resultado.
+Queda pendiente de un entorno propio.
 
 ---
 
 ## Lo que estas seis comprobaciones dicen del ciclo
 
-De 12 sospechas iniciales, **6 se confirmaron como defectos, 4 resultaron ser comportamiento
-correcto y 2 no pudieron comprobarse**. Una tasa de acierto del 50 % sobre las hipótesis
-verificables.
+De 12 sospechas iniciales, **6 se confirmaron como defectos, 5 resultaron ser comportamiento
+correcto y 1 no pudo comprobarse**. Una tasa de acierto del 55 % sobre las hipótesis verificables.
 
 No es un mal dato: las hipótesis se formulan precisamente sobre los puntos donde una aplicación
 *suele* fallar, y comprobarlas es barato comparado con el coste de un reporte inválido. Lo que sería
 un mal dato es haber publicado las doce.
 
-Las cuatro descartadas tienen además algo en común que merece anotarse: **en las cuatro, la
-aplicación valida mejor de lo que la hipótesis suponía**, y en tres de ellas la validación está
-además en el sitio correcto. Es un contrapeso honesto al hallazgo transversal del ciclo —que la
-validación de dominio falta en varios endpoints— y evita que el informe pinte la aplicación peor de
-lo que está.
+Las cinco descartadas tienen además algo en común que merece anotarse: **en las cinco, la
+aplicación se comporta mejor de lo que la hipótesis suponía**. Es un contrapeso honesto al hallazgo
+transversal del ciclo —que la validación de dominio falta en varios endpoints— y evita que el
+informe pinte la aplicación peor de lo que está.
+
+### Evidencia de la comprobación de la ordenación
+
+**Página 1 ordenada, y página 2 continuando la misma secuencia**
+![Listado ordenado, página 1](../evidencias/BUG-005-01-pagina1-ordenada.png)
+![Listado ordenado, página 2](../evidencias/BUG-005-02-pagina2.png)

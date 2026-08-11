@@ -12,9 +12,9 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Estado | Casos | | Prioridad | Casos | | Técnica de diseño | Casos |
 | ------ | ----: | - | --------- | ----: | - | ----------------- | ----: |
-| Pasa | 29 | | Alta | 15 | | Particiones de equivalencia | 12 |
+| Pasa | 30 | | Alta | 15 | | Particiones de equivalencia | 12 |
 | Falla | 6 | | Media | 21 | | Valores límite | 8 |
-| Bloqueado | 3 | | Baja | 2 | | Tabla de decisión | 7 |
+| Bloqueado | 2 | | Baja | 2 | | Tabla de decisión | 7 |
 |  |  | |  |  | | Conjetura de errores | 6 |
 |  |  | |  |  | | Transición de estados | 5 |
 
@@ -43,7 +43,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 | `CP-017` | RF-16 | [Búsqueda sin coincidencias muestra «No Records Found»](#cp-017) | Media | Funcional negativo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-018` | RF-13 | [El botón Reset limpia todos los filtros y restaura el listado](#cp-018) | Alta | Funcional / Smoke | Transición de estados | 🟢 Pasa | — |
 | `CP-019` | RF-14, RF-17 | [Al eliminar el último registro de la última página el listado se reubica](#cp-019) | Media | Funcional negativo | Valores límite | 🟡 Bloqueado | — |
-| `CP-020` | RF-15 | [La ordenación por columna se mantiene al cambiar de página](#cp-020) | Baja | Funcional | Transición de estados | 🟡 Bloqueado | — |
+| `CP-020` | RF-15 | [La ordenación por columna se mantiene al cambiar de página](#cp-020) | Baja | Funcional | Transición de estados | 🟢 Pasa | — |
 | `CP-021` | RF-17 | [Borrado múltiple de empleados con confirmación previa](#cp-021) | Alta | Funcional positivo | Transición de estados | 🟢 Pasa | — |
 | `CP-022` | RF-18, RF-22 | [Edición y guardado de los datos personales de un empleado](#cp-022) | Alta | Funcional positivo | Particiones de equivalencia | 🟢 Pasa | — |
 | `CP-023` | RF-19, RF-20 | [La fecha de nacimiento con formato inválido se rechaza](#cp-023) | Media | Funcional negativo | Particiones de equivalencia | 🟢 Pasa | — |
@@ -510,7 +510,7 @@ estrategia del [plan de pruebas](01-plan-de-pruebas.md).
 
 | Requisito | Prioridad | Tipo | Técnica de diseño | Estado | Defecto |
 | --------- | --------- | ---- | ----------------- | ------ | ------- |
-| RF-15 | Baja | Funcional | Transición de estados | 🟡 Bloqueado | — |
+| RF-15 | Baja | Funcional | Transición de estados | 🟢 Pasa | — |
 
 **Precondiciones:** Sesión iniciada como Admin. El listado tiene más de una página.
 

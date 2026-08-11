@@ -4,8 +4,8 @@
 estructura fija: cabecera de clasificación, precondiciones, pasos, resultado esperado, resultado
 obtenido, evidencia, **notas técnicas**, análisis de impacto, recomendación y **verificación**.
 
-Otras 6 hipótesis de defecto se comprobaron y **no llegaron a reportarse**: 4 resultaron ser
-comportamiento correcto y 2 no son verificables en este entorno. Están documentadas en
+Otras 6 hipótesis de defecto se comprobaron y **no llegaron a reportarse**: 5 resultaron ser
+comportamiento correcto y 1 no es verificable en este entorno. Están documentadas en
 [`DESCARTADOS.md`](DESCARTADOS.md), con la comprobación que las descartó.
 
 ## Índice

@@ -266,7 +266,7 @@ CASOS = [
         "Columna: Last Name (A-Z)",
         "El criterio de ordenación persiste entre páginas y la secuencia alfabética "
         "continúa de forma coherente de una página a la siguiente.",
-        "Baja", "Funcional", "Transición de estados", "Bloqueado", "",
+        "Baja", "Funcional", "Transición de estados", "Pasa", "",
     ),
     (
         "CP-021", "RF-17",

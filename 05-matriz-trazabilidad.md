@@ -16,7 +16,7 @@ resultado?»**
 | Requisitos declarados | 40 |
 | Requisitos con al menos un caso | 34 (85,0 %) |
 | Requisitos sin cobertura | 6 |
-| Requisitos verificados sin incidencias | 24 |
+| Requisitos verificados sin incidencias | 25 |
 | Requisitos con al menos un defecto abierto | 6 |
 
 ## Requisito → Casos → Defectos
@@ -37,7 +37,7 @@ resultado?»**
 | **RF-12** | Conjunción lógica entre criterios de filtro | [CP-016](02-casos-de-prueba.md#cp-016) | — | 🟢 Verificado |
 | **RF-13** | Reset de filtros | [CP-018](02-casos-de-prueba.md#cp-018) | — | 🟢 Verificado |
 | **RF-14** | Paginación de 50 registros y total de resultados | [CP-019](02-casos-de-prueba.md#cp-019) | — | 🟡 No verificado |
-| **RF-15** | Ordenación por columnas | [CP-020](02-casos-de-prueba.md#cp-020) | — | 🟡 No verificado |
+| **RF-15** | Ordenación por columnas | [CP-020](02-casos-de-prueba.md#cp-020) | — | 🟢 Verificado |
 | **RF-16** | Aviso «No Records Found» | [CP-017](02-casos-de-prueba.md#cp-017) | — | 🟢 Verificado |
 | **RF-17** | Borrado individual y múltiple con confirmación | [CP-019](02-casos-de-prueba.md#cp-019) · [CP-021](02-casos-de-prueba.md#cp-021) | — | 🟡 No verificado |
 | **RF-18** | Edición de datos personales | [CP-022](02-casos-de-prueba.md#cp-022) · [CP-025](02-casos-de-prueba.md#cp-025) · [CP-027](02-casos-de-prueba.md#cp-027) · [CP-028](02-casos-de-prueba.md#cp-028) | — | 🟢 Verificado |
