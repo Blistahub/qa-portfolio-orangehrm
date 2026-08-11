@@ -4,7 +4,7 @@
 | --- | --- |
 | **Ciclo** | Ciclo 1 — pruebas funcionales de sistema |
 | **Módulo** | PIM — *Personal Information Management* |
-| **Entorno** | `opensource-demo.orangehrmlive.com` (OrangeHRM OS 5.x) · Windows 11 Pro 24H2 · Chrome (estable) |
+| **Entorno** | `opensource-demo.orangehrmlive.com` (OrangeHRM OS 5.9) · Windows 11 Pro 24H2 · Chrome (estable) |
 | **Casos planificados** | 38 |
 | **Autor** | David Coya Moreno — QA Tester |
 

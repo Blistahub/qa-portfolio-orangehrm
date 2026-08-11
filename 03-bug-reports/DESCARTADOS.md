@@ -109,6 +109,9 @@ Amount            →  Should be a number
 El mensaje de *Amount* es específico del importe negativo: la validación del campo no admite el
 signo menos. La hipótesis queda descartada.
 
+**El campo rechazando el importe negativo, con el mensaje junto a *Amount***
+![Add Salary Component con -1500 y el mensaje Should be a number](../evidencias/DESCARTADA-salario-negativo.png)
+
 **Importancia de haberlo comprobado.** Esta era, sobre el papel, la incidencia de mayor severidad
 del ciclo, y era la que sostenía la recomendación de *no apto para release*. Publicarla sin
 verificarla habría producido dos daños: una recomendación de release equivocada, y un reporte que el

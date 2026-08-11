@@ -1,6 +1,6 @@
 # 00 — Catálogo de requisitos (módulo PIM)
 
-**Aplicación bajo prueba (SUT):** OrangeHRM OS 5.x — instancia pública de demostración
+**Aplicación bajo prueba (SUT):** OrangeHRM OS 5.9 — instancia pública de demostración
 **Módulo:** PIM — *Personal Information Management* (gestión de empleados)
 **Autor:** David Coya Moreno
 

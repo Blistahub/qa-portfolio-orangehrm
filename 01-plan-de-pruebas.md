@@ -3,7 +3,7 @@
 | Campo                | Valor                                                        |
 | -------------------- | ------------------------------------------------------------ |
 | **Proyecto**         | Portfolio de QA manual — OrangeHRM OS                        |
-| **Aplicación (SUT)** | OrangeHRM OS 5.x — `opensource-demo.orangehrmlive.com`        |
+| **Aplicación (SUT)** | OrangeHRM OS 5.9 — `opensource-demo.orangehrmlive.com`        |
 | **Módulo**           | PIM — *Personal Information Management*                       |
 | **Versión del plan** | 1.0                                                           |
 | **Autor**            | David Coya Moreno — QA Tester                                 |
@@ -126,7 +126,7 @@ un empleado creado a medias. Es el tipo de caso que solo aparece si se modela la
 | Elemento              | Detalle                                                                              |
 | --------------------- | -------------------------------------------------------------------------------------- |
 | **URL**               | `https://opensource-demo.orangehrmlive.com`                                            |
-| **Versión**           | OrangeHRM OS 5.x — la build concreta se anota en el informe de ejecución en el momento del ciclo. |
+| **Versión**           | OrangeHRM OS 5.9, leída del pie de la propia aplicación durante el ciclo. |
 | **Credenciales**      | `Admin` / `admin123` (rol Administrador, publicadas por el propio fabricante en la pantalla de acceso). |
 | **Sistema operativo** | Windows 11 Pro 24H2                                                                    |
 | **Navegadores**       | Google Chrome (estable). Firefox y Edge planificados para el ciclo 2 (ver §3.2)         |

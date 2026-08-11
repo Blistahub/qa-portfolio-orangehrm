@@ -21,7 +21,7 @@ davidcoyamoreno@gmail.com</sub>
 
 | | |
 | --- | --- |
-| **Aplicación** | OrangeHRM OS 5.x — instancia pública de demostración |
+| **Aplicación** | OrangeHRM OS 5.9 — instancia pública de demostración |
 | **Módulo** | PIM (*Personal Information Management*) |
 | **Casos ejecutados** | 36 de 38 — **94,7 %** |
 | **Tasa de éxito** | **83,3 %** (30 superados · 6 fallados · 2 bloqueados) |
