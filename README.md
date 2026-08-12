@@ -201,6 +201,20 @@ qa-portfolio-orangehrm/
 
 ---
 
+## El otro proyecto del portfolio
+
+Este repositorio cubre el **ciclo de pruebas manuales**. La automatización de la regresión, que
+aquí se declara [fuera de alcance](01-plan-de-pruebas.md#22-qué-no-entra-en-el-alcance--y-por-qué)
+por decisión de diseño, está en
+**[playwright-e2e-saucedemo](https://github.com/Blistahub/playwright-e2e-saucedemo)**: suite E2E
+con Playwright y TypeScript, 26 casos ejecutados en Chromium, Firefox y WebKit en cada push, con 5
+defectos encontrados y documentados.
+
+Los dos se complementan a propósito: este demuestra criterio de prueba, el otro demuestra que ese
+criterio se sostiene en código que se ejecuta solo.
+
+---
+
 ## Sobre el autor
 
 **David Coya Moreno** — QA Tester. Testing manual funcional, de regresión, smoke y cross-browser;

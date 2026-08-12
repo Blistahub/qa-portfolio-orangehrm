@@ -51,7 +51,7 @@ Delimitar es la mitad del trabajo. Cada exclusión lleva su motivo:
 | Pruebas de seguridad ofensiva (SQLi, XSS, fuerza bruta, escaneo de puertos) | No se dispone de autorización escrita del propietario del sistema. Sin permiso explícito no se ejecutan. |
 | Pruebas de instalación, migración y actualización              | No hay acceso al servidor ni a la base de datos de la instancia de demostración.                              |
 | Verificación en base de datos con SQL                          | Sin acceso al motor de datos. La integridad se verifica indirectamente a través de la interfaz y de las respuestas de la API interna observadas en el navegador. |
-| Automatización de la regresión                                 | Fuera del alcance de **este** repositorio por decisión de diseño: se aborda en el proyecto `qa-portfolio-playwright-saucedemo`. |
+| Automatización de la regresión                                 | Fuera del alcance de **este** repositorio por decisión de diseño: se aborda en el proyecto [`playwright-e2e-saucedemo`](https://github.com/Blistahub/playwright-e2e-saucedemo), una suite E2E con Playwright y TypeScript sobre los tres motores de navegador. |
 | Localización e internacionalización completa                   | Solo se prueba el idioma por defecto (inglés). Las incidencias de traducción se anotan como observación, no como defecto. |
 
 > **Nota ética y legal.** Todas las pruebas se ejecutan contra la instancia pública que OrangeHRM
